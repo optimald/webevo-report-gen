@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Webevo.ai Comprehensive Scan - {{ domain }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* Almost Black */
+            color: #F9FAFB; /* Almost White */
+        }
+        .report-card {
+            background-color: #111827; /* Dark Gray */
+            border: 1px solid #1F2937; /* Gray border */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.8s ease-out;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .rating-critical-fail { color: #EF4444; } /* Red */
+        .rating-disqualified { color: #EF4444; } /* Red */
+        .rating-poor { color: #F97316; } /* Orange */
+        .rating-very-poor { color: #F97316; } /* Orange */
+        .rating-underperforming { color: #F59E0B; } /* Amber */
+        .rating-almost-there { color: #EAB308; } /* Yellow */
+        .rating-needs-work { color: #EAB308; } /* Yellow */
+        .rating-good { color: #84CC16; } /* Lime */
+        .rating-perfect { color: #22C55E; } /* Green */
+
+        .border-critical-fail { border-color: #EF4444; }
+        .border-disqualified { border-color: #EF4444; }
+        .border-poor { border-color: #F97316; }
+        .border-very-poor { border-color: #F97316; }
+        .border-underperforming { border-color: #F59E0B; }
+        .border-almost-there { border-color: #EAB308; }
+        .border-needs-work { border-color: #EAB308; }
+        .border-good { border-color: #84CC16; }
+        .border-perfect { border-color: #22C55E; }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Header -->
+        <header class="mb-8 text-center">
+             <div class="flex items-center justify-center gap-4 mb-4">
+                <img src="https://www.webevo.ai/_next/image?url=%2Fwebevo-logo-nav-hd-large.png&w=128&q=75" alt="WebEvo.ai Logo" class="h-16 w-16">
+                <h1 class="text-5xl font-bold text-white tracking-tight">
+                    WebEvo<span class="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">.ai</span>
+                </h1>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-white">Comprehensive Scan</h2>
+            <p class="text-lg text-gray-400 mt-1">{{ url }}</p>
+        </header>
+
+        <!-- Main Score -->
+        <div class="mb-12 flex flex-col items-center">
+            <div class="relative w-64 h-64">
+                <svg class="w-full h-full" viewBox="0 0 120 120">
+                    <circle class="text-gray-800" stroke-width="8" stroke="currentColor" fill="transparent" r="56" cx="60" cy="60"/>
+                    <circle id="overall-progress-ring" class="progress-ring__circle rating-{{ overallRating.lower().replace(' ', '-') }}" stroke-width="8" stroke-linecap="round" stroke="currentColor" fill="transparent" r="56" cx="60" cy="60"/>
+                </svg>
+                <div id="overall-score-container" class="absolute inset-0 flex flex-col items-center justify-center rating-{{ overallRating.lower().replace(' ', '-') }}">
+                    <div class="flex items-baseline">
+                        <span id="overall-grade" class="text-6xl font-extrabold">{{ getGrade(overallScore) }}</span>
+                        <span id="overall-score" class="text-3xl font-bold ml-2 opacity-70">{{ overallScore }}</span>
+                    </div>
+                    <span id="overall-rating" class="text-lg font-medium mt-1">{{ overallRating }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module Scores Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="modules-grid">
+            {% for moduleKey, module in modules.items() %}
+            {% if module.summary %}
+            <div class="report-card rounded-xl p-5 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-gray-900 rating-{{ module.summary.rating.lower().replace(' ', '-') }}">
+                                {{ getModuleIcon(moduleKey) | safe }}
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-lg font-semibold capitalize text-white">{{ moduleKey.replace(/([A-Z])/g, ' $1') }}</p>
+                                <p class="text-sm rating-{{ module.summary.rating.lower().replace(' ', '-') }}">{{ module.summary.rating }}</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-3xl font-bold rating-{{ module.summary.rating.lower().replace(' ', '-') }}">{{ getGrade(module.summary.score) }}</div>
+                            <div class="text-lg font-semibold rating-{{ module.summary.rating.lower().replace(' ', '-') }} opacity-70">{{ module.summary.score }}</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-3 pt-3 border-t border-gray-700">{{ getModuleDescription(moduleKey) }}</p>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- All Recommendations -->
+        <div>
+            <h2 class="text-2xl font-bold mb-4 text-center">Full Recommendation List</h2>
+            <div class="space-y-4" id="full-recommendations">
+                {% if topRecommendations and topRecommendations.items %}
+                <div class="report-card rounded-xl p-6">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center text-white">
+                       <span class="mr-3">{{ getModuleIcon('overall') | safe }}</span>
+                       Overall Top Recommendations
+                    </h3>
+                    <ul class="space-y-2">
+                        {% for rec in topRecommendations.items %}
+                        <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                            <span class="text-gray-300">{{ rec.text }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% for moduleKey, module in modules.items() %}
+                {% if module.recommendations and module.recommendations.items %}
+                <div class="report-card rounded-xl p-6">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center text-white">
+                       <span class="mr-3">{{ getModuleIcon(moduleKey) | safe }}</span>
+                       {{ moduleKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()) }} Recommendations
+                    </h3>
+                    <ul class="space-y-2">
+                        {% for rec in module.recommendations.items %}
+                        <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                            <span class="text-gray-300">{{ rec.text }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Optimal.dev Plug -->
+        <div class="mt-12 border border-gray-700 rounded-xl p-8 text-center" style="background-color: #120B13;">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <img src="https://www.optimal.dev/_next/image?url=%2Foptimaldev_icon.png&w=64&q=75" alt="Optimal.dev Logo" class="h-12 w-12">
+                <img src="https://www.optimal.dev/_next/image?url=%2Fimages%2Foptimal-logo.svg&w=256&q=75" alt="Optimal.dev" class="h-8">
+            </div>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Need help with these changes? The team at Optimal.dev specializes in executing the recommendations from this report to enhance your website's performance, security, and user experience.</p>
+            <p class="mt-6 text-lg font-semibold text-blue-400">
+                Visit us at: <span class="text-white">https://optimal.dev</span>
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            <p>Report generated on {{ formattedDate }}</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Helper functions for the template
+        function getGrade(score) {
+            if (score >= 97) return 'A+';
+            if (score >= 93) return 'A';
+            if (score >= 90) return 'A-';
+            if (score >= 87) return 'B+';
+            if (score >= 83) return 'B';
+            if (score >= 80) return 'B-';
+            if (score >= 77) return 'C+';
+            if (score >= 73) return 'C';
+            if (score >= 70) return 'C-';
+            if (score >= 67) return 'D+';
+            if (score >= 63) return 'D';
+            if (score >= 60) return 'D-';
+            return 'F';
+        }
+
+        function setProgress(circle, percent) {
+            const radius = circle.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            const offset = circumference - percent / 100 * circumference;
+            setTimeout(() => { circle.style.strokeDashoffset = offset; }, 100);
+        }
+
+        // Set progress for overall score
+        document.addEventListener('DOMContentLoaded', function() {
+            const overallProgressRing = document.getElementById('overall-progress-ring');
+            if (overallProgressRing) {
+                setProgress(overallProgressRing, {{ overallScore }});
+            }
+        });
+    </script>
+</body>
+</html>

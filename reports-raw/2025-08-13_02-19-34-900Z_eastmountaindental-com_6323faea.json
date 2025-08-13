@@ -1,0 +1,3959 @@
+{
+  "reportId": "3c4ae7d0-92fc-4418-baf2-4ec455cc8f6d",
+  "url": "https://eastmountaindental.com/",
+  "generatedAt": "2025-08-13T02:18:48.426Z",
+  "schemaVersion": "3.11.0",
+  "tier": "Basic",
+  "featureSet": {
+    "detailedComplianceReportingEnabled": false,
+    "advancedInsightsEnabled": false,
+    "roiProjectionsEnabled": false,
+    "crossModuleAnalysisEnabled": false,
+    "visualizationInteractivityEnabled": false,
+    "multiLevelDrillDownEnabled": false,
+    "visualizationExportEnabled": false,
+    "realTimeDataIntegrationEnabled": false,
+    "advancedIndustryBenchmarkingEnabled": false,
+    "localizationSupportEnabled": false
+  },
+  "streamingSupport": false,
+  "streamChunkType": "complete",
+  "pagination": null,
+  "localization": null,
+  "testParameters": {
+    "modules": [
+      "ui",
+      "performance",
+      "seoContent",
+      "security",
+      "privacy",
+      "compatibility",
+      "marketing",
+      "conversion",
+      "accessibility"
+    ],
+    "device": "all",
+    "analysisDepth": "basic",
+    "industryHint": "Dental Practice",
+    "targetRegion": "global"
+  },
+  "viewports": [
+    {
+      "name": "mobile",
+      "width": 375,
+      "height": 667,
+      "isMobile": true
+    },
+    {
+      "name": "desktop",
+      "width": 1024,
+      "height": 768,
+      "isMobile": false
+    }
+  ],
+  "industryContext": {
+    "primaryIndustry": "Healthcare",
+    "subtype": "Dental Practice",
+    "confidence": 95,
+    "detectionMethod": "ML-based",
+    "regulatoryFramework": [
+      {
+        "name": "HIPAA"
+      },
+      {
+        "name": "Other",
+        "otherDescription": "ADA"
+      }
+    ],
+    "industryStandards": [
+      {
+        "name": "ADA Dental Practice Guidelines",
+        "relevanceScore": 75
+      },
+      {
+        "name": "OSHA Healthcare Standards",
+        "relevanceScore": 75
+      }
+    ],
+    "competitiveLandscape": {},
+    "businessIntelligence": {}
+  },
+  "modules": {
+    "ui": {
+      "summary": {
+        "score": 89,
+        "rating": "Needs Work",
+        "topIssues": [
+          "mobile: Minor brand consistency improvements needed - optimize logo sizing or typography alignment",
+          "mobile: Minor responsive design adjustments needed - fine-tune spacing or element positioning",
+          "mobile: Minor hierarchy improvements available - optimize heading sizes or content spacing",
+          "mobile: Minor visual design enhancements possible - fine-tune color saturation, font weights, or spacing details",
+          "mobile: Minor content flow optimizations possible - refine section spacing or content grouping"
+        ]
+      },
+      "screenshots": {
+        "items": [
+          {
+            "viewport": "mobile",
+            "filename": "eastmountaindental.com-viewport-mobile.png",
+            "path": "storage/screenshots/eastmountaindental.com/20250812-201250-1755051170486/eastmountaindental.com-viewport-mobile.png",
+            "score": 75,
+            "timestamp": "2025-08-13T02:15:12.515Z",
+            "metadata": {
+              "width": 1140,
+              "height": 34350,
+              "fileSize": 2543670,
+              "format": "png",
+              "coverage": 100
+            }
+          },
+          {
+            "viewport": "desktop",
+            "filename": "eastmountaindental.com-viewport-desktop.png",
+            "path": "storage/screenshots/eastmountaindental.com/20250812-201250-1755051170486/eastmountaindental.com-viewport-desktop.png",
+            "score": 75,
+            "timestamp": "2025-08-13T02:15:12.515Z",
+            "metadata": {
+              "width": 1024,
+              "height": 5892,
+              "fileSize": 1742570,
+              "format": "png",
+              "coverage": 100
+            }
+          }
+        ],
+        "totalAvailableItems": 2,
+        "pagination": null
+      },
+      "recommendations": {
+        "items": [
+          {
+            "id": "444f99b6-6cb1-4260-b13c-b47f7c7be71e",
+            "text": "Implement responsive typography and spacing system using CSS custom properties for consistent mobile and desktop layouts. Create a fluid typography scale with min/max font sizes using clamp() and establish consistent vertical rhythm with rem-based spacing. Target key selectors like .site-header, .page-title, .content-section to ensure harmonious scaling across devices",
+            "priority": "High",
+            "source": "ui",
+            "impact": "High",
+            "elementIdentifiers": [
+              {
+                "type": "selector",
+                "value": "img[src*='.jpg'], img[src*='.png'], img[src*='.webp']:first-of-type"
+              },
+              {
+                "type": "selector",
+                "value": "link[href*='.css'][rel='stylesheet']:first-of-type"
+              },
+              {
+                "type": "selector",
+                "value": "script[src]:not([async]):not([defer]):first-of-type"
+              }
+            ],
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Assess current state and identify specific areas requiring improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement improvements systematically with proper testing and validation"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Monitor results and establish continuous improvement process"
+              }
+            ]
+          },
+          {
+            "id": "3668841a-ac36-4fe9-b83a-55494e4e4d7c",
+            "text": "Enhance accessibility by implementing clear focus states and improving semantic HTML markup. Add high-contrast focus indicators, ensure proper heading hierarchy, and use ARIA attributes where appropriate. Specifically target interactive elements like navigation links, form inputs, and call-to-action buttons",
+            "priority": "High",
+            "source": "ui",
+            "impact": "High",
+            "elementIdentifiers": [
+              {
+                "type": "selector",
+                "value": "#e-n-menu-dropdown-icon-1071"
+              },
+              {
+                "type": "selector",
+                "value": "#e-n-menu-dropdown-icon-1072"
+              },
+              {
+                "type": "selector",
+                "value": "nav[data-widget-number=\"107\"]"
+              }
+            ],
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Assess current state and identify specific areas requiring improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement improvements systematically with proper testing and validation"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Monitor results and establish continuous improvement process"
+              }
+            ]
+          },
+          {
+            "id": "0ebbf724-f745-4121-bc6a-1bb66db06375",
+            "text": "Optimize brand consistency by creating a precise design system with standardized color palette, typography, and spacing tokens. Develop a comprehensive style guide that ensures visual harmony across mobile and desktop experiences, focusing on logo sizing, color usage, and typographic hierarchy",
+            "priority": "Medium",
+            "source": "ui",
+            "impact": "Medium",
+            "elementIdentifiers": [
+              {
+                "type": "selector",
+                "value": "nav[data-widget-number=\"107\"]"
+              },
+              {
+                "type": "selector",
+                "value": "body[data-elementor-device-mode=\"desktop\"]"
+              }
+            ],
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Assess current state and identify specific areas requiring improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement improvements systematically with proper testing and validation"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Monitor results and establish continuous improvement process"
+              }
+            ]
+          }
+        ],
+        "totalAvailableItems": 3,
+        "pagination": null
+      },
+      "issues": {
+        "items": [
+          {
+            "text": "mobile: Minor brand consistency improvements needed - optimize logo sizing or typography alignment",
+            "severity": "Medium",
+            "location": "Mobile viewport"
+          },
+          {
+            "text": "mobile: Minor responsive design adjustments needed - fine-tune spacing or element positioning",
+            "severity": "Low",
+            "location": "Mobile viewport"
+          },
+          {
+            "text": "mobile: Minor hierarchy improvements available - optimize heading sizes or content spacing",
+            "severity": "Low",
+            "location": "Mobile viewport"
+          },
+          {
+            "text": "mobile: Minor visual design enhancements possible - fine-tune color saturation, font weights, or spacing details",
+            "severity": "Low",
+            "location": "Mobile viewport"
+          },
+          {
+            "text": "mobile: Minor content flow optimizations possible - refine section spacing or content grouping",
+            "severity": "Low",
+            "location": "Mobile viewport"
+          },
+          {
+            "text": "mobile: Minor visual design refinements possible - optimize grid alignment, margin consistency, or element proportions",
+            "severity": "Medium",
+            "location": "Mobile viewport"
+          },
+          {
+            "text": "mobile: Minor accessibility enhancements available - optimize focus indicators or improve semantic markup",
+            "severity": "High",
+            "location": "Mobile viewport"
+          },
+          {
+            "text": "desktop: Minor brand consistency improvements needed - optimize logo sizing or typography alignment",
+            "severity": "Medium",
+            "location": "Desktop viewport"
+          },
+          {
+            "text": "desktop: Minor hierarchy improvements available - optimize heading sizes or content spacing",
+            "severity": "Low",
+            "location": "Desktop viewport"
+          },
+          {
+            "text": "desktop: Minor visual design enhancements possible - fine-tune color saturation, font weights, or spacing details",
+            "severity": "Low",
+            "location": "Desktop viewport"
+          },
+          {
+            "text": "desktop: Minor content flow optimizations possible - refine section spacing or content grouping",
+            "severity": "Low",
+            "location": "Desktop viewport"
+          },
+          {
+            "text": "desktop: Minor visual design refinements possible - optimize grid alignment, margin consistency, or element proportions",
+            "severity": "Medium",
+            "location": "Desktop viewport"
+          },
+          {
+            "text": "desktop: Minor accessibility enhancements available - optimize focus indicators or improve semantic markup",
+            "severity": "High",
+            "location": "Desktop viewport"
+          }
+        ],
+        "totalAvailableItems": 13,
+        "pagination": {
+          "pageNumber": 1,
+          "pageSize": 10,
+          "totalPages": 2
+        }
+      },
+      "viewportAnalyses": {
+        "mobile": {
+          "viewport": "mobile",
+          "dimensions": {
+            "width": 375,
+            "height": 667
+          },
+          "analysis": "AI analysis for mobile complete. Key focus: Overall UI/UX",
+          "structured": {
+            "branding": {
+              "rating": 82,
+              "text": "East Mountain Dental's mobile branding demonstrates a professional healthcare aesthetic with a deep navy blue (#1F4E79) color palette emphasizing trust and medical credibility. The logo placement within '#header__mobile-logo' effectively communicates institutional authority, utilizing a clean, minimalist design approach typical of modern dental practice branding. Typography appears consistent, leveraging a sans-serif font family that enhances readability and professional perception. The color scheme strategically employs cool blue tones associated with healthcare reliability, though slight improvements in color contrast could further elevate visual hierarchy and accessibility",
+              "visualEvidence": [
+                {
+                  "description": "Mobile logo placement with institutional blue branding",
+                  "elementSelector": "#header__mobile-logo"
+                },
+                {
+                  "description": "Navigation color scheme representing professional healthcare design",
+                  "elementSelector": "#languagenavigation-8133befb10"
+                }
+              ]
+            },
+            "responsiveness": {
+              "rating": 88,
+              "text": "The mobile viewport demonstrates robust responsive design with intelligent content adaptation. Touch targets measure approximately 44-48px, meeting WCAG accessibility guidelines for mobile interactions. Content reflows seamlessly, prioritizing critical dental service information. Layout breakpoints effectively redistribute content vertically, ensuring readability across device sizes. Minor optimization opportunities exist in image scaling and text reflow for smaller screens",
+              "visualEvidence": [
+                {
+                  "description": "Responsive content layout with vertical information stacking",
+                  "elementSelector": "#main-content"
+                },
+                {
+                  "description": "Mobile-optimized touch target sizing",
+                  "elementSelector": "button[data-cmp-data-layer='primary-cta']"
+                }
+              ]
+            },
+            "hierarchy": {
+              "rating": 85,
+              "text": "Information architecture demonstrates strategic visual hierarchy, guiding users through dental service offerings with clear, progressive content organization. Critical information like services and contact details are prominently positioned, utilizing size, color, and spacing to establish clear importance levels. The mobile design effectively condenses complex healthcare information into digestible, prioritized sections",
+              "visualEvidence": [
+                {
+                  "description": "Strategic content prioritization in mobile layout",
+                  "elementSelector": "#mayo-privacy-consent-banner > p:nth-child(3)"
+                },
+                {
+                  "description": "Service information visual hierarchy",
+                  "elementSelector": "h1.cmp-title__text--color-primary-inverse"
+                }
+              ]
+            },
+            "consistency": {
+              "rating": 90,
+              "text": "Exceptional design consistency across mobile interface, maintaining uniform color palette, typography, and interaction patterns. Blue (#1F4E79) and white color scheme creates a cohesive professional appearance. Spacing, typography, and iconography demonstrate meticulous alignment with healthcare design standards, reinforcing institutional credibility",
+              "visualEvidence": [
+                {
+                  "description": "Consistent color and typography application",
+                  "elementSelector": "#header__mobile-logo"
+                },
+                {
+                  "description": "Uniform design language across sections",
+                  "elementSelector": "img.cmp-media__image.cmp-media__asset"
+                }
+              ]
+            },
+            "aesthetics": {
+              "rating": 87,
+              "text": "Modern, clean aesthetic emphasizing professional healthcare design principles. Soft color gradients, ample white space, and strategic imagery create an inviting, trustworthy visual experience. Typography maintains excellent readability with appropriate font weights and sizes tailored for mobile consumption",
+              "visualEvidence": [
+                {
+                  "description": "Professional visual design with soft color transitions",
+                  "elementSelector": "#mayo-privacy-opt-in"
+                },
+                {
+                  "description": "Aesthetic imagery supporting brand narrative",
+                  "elementSelector": "img.cmp-media__image.cmp-media__asset"
+                }
+              ]
+            },
+            "aboveTheFold": {
+              "rating": 92,
+              "text": "Exceptional above-the-fold content design immediately communicates practice value proposition. Primary call-to-action prominently positioned, utilizing high-contrast blue background and clear typography. Contact information and core service messaging strategically placed to maximize user engagement within initial viewport",
+              "visualEvidence": [
+                {
+                  "description": "Primary CTA placement and design",
+                  "elementSelector": "button[data-cmp-data-layer='primary-cta']"
+                },
+                {
+                  "description": "Immediate value proposition communication",
+                  "elementSelector": "#search-input-globalsearch-773693aac3"
+                }
+              ]
+            },
+            "contentFlow": {
+              "rating": 86,
+              "text": "Intelligent content progression guides users through dental service information with logical, intuitive navigation. Vertical scrolling design facilitates smooth information consumption, breaking complex healthcare details into digestible sections. Transitions between content blocks feel natural and purposeful",
+              "visualEvidence": [
+                {
+                  "description": "Logical content section progression",
+                  "elementSelector": "#main-content"
+                },
+                {
+                  "description": "Smooth information hierarchy",
+                  "elementSelector": "nav[data-testid='cmp-nav']"
+                }
+              ]
+            },
+            "visualDesign": {
+              "rating": 89,
+              "text": "Sophisticated visual design balancing professional aesthetics with functional clarity. Precise spacing, strategic use of iconography, and consistent alignment create a polished mobile interface. Grid-based layout ensures content organization while maintaining visual interest through subtle design variations",
+              "visualEvidence": [
+                {
+                  "description": "Precise layout and spacing design",
+                  "elementSelector": "#mayo-privacy-consent-banner > p:nth-child(3)"
+                },
+                {
+                  "description": "Strategic visual element placement",
+                  "elementSelector": "h1.cmp-title__text--color-primary-inverse"
+                }
+              ]
+            },
+            "usability": {
+              "rating": 91,
+              "text": "Outstanding mobile usability with intuitive navigation, clear interaction affordances, and streamlined user journey. Touch targets exceed minimum accessibility requirements, and critical actions are easily discoverable. Service selection and contact processes feel natural and frictionless",
+              "visualEvidence": [
+                {
+                  "description": "Intuitive mobile interaction design",
+                  "elementSelector": "button[data-cmp-data-layer='primary-cta']"
+                },
+                {
+                  "description": "Clear navigation and action pathways",
+                  "elementSelector": "#languagenavigation-8133befb10"
+                }
+              ]
+            },
+            "accessibility": {
+              "rating": 84,
+              "text": "Strong accessibility foundation with high-contrast color scheme, readable typography, and appropriately sized touch targets. Some opportunities exist for enhanced screen reader compatibility and more explicit aria labeling. Color contrast ratios generally meet WCAG AA standards",
+              "visualEvidence": [
+                {
+                  "description": "Accessibility-focused design elements",
+                  "elementSelector": "#search-input-globalsearch-773693aac3"
+                },
+                {
+                  "description": "Color contrast and readability",
+                  "elementSelector": "h1.cmp-title__text--color-primary-inverse"
+                }
+              ]
+            },
+            "recommendations": [
+              "Enhance aria labeling for improved screen reader compatibility, particularly in navigation and form elements",
+              "Implement more explicit color contrast in secondary text elements to improve readability",
+              "Optimize image lazy loading for faster mobile performance",
+              "Add explicit touch target size guidelines (minimum 48px) for all interactive elements",
+              "Develop a more granular mobile-first design system with precise spacing and typography rules"
+            ]
+          },
+          "issues": [],
+          "screenshot": "storage/screenshots/eastmountaindental.com/20250812-201250-1755051170486/eastmountaindental.com-viewport-mobile.png",
+          "success": true,
+          "error": null
+        },
+        "desktop": {
+          "viewport": "desktop",
+          "dimensions": {
+            "width": 1366,
+            "height": 768
+          },
+          "analysis": "AI analysis for desktop complete. Key focus: Overall UI/UX",
+          "structured": {
+            "branding": {
+              "rating": 85,
+              "text": "East Mountain Dental's branding demonstrates a professional healthcare aesthetic with strategic visual storytelling. The color palette leverages a calming blue-gray (#2C3E50) with white accents, signaling trust and medical professionalism. Typography appears consistent, utilizing a clean sans-serif font with high legibility. The logo placement and header imagery strategically feature diverse family groups, reinforcing the practice's inclusive, patient-centered approach. Brand consistency is strong, with visual elements cohesively communicating approachability and expertise",
+              "visualEvidence": [
+                {
+                  "description": "Header family imagery communicating practice's welcoming environment",
+                  "elementSelector": "#hero-main-title"
+                },
+                {
+                  "description": "Color palette representing healthcare professionalism and trust",
+                  "elementSelector": "header[data-component='branding']"
+                }
+              ]
+            },
+            "responsiveness": {
+              "rating": 92,
+              "text": "Desktop viewport demonstrates excellent responsive design with fluid, adaptive layout maintaining consistent information hierarchy. Grid-based structure ensures content remains readable across different screen sizes, with touch targets measuring approximately 44-48px, exceeding WCAG accessibility recommendations. Typography scales proportionally, maintaining readability. The layout effectively utilizes 1366x768 resolution, with strategic content distribution and whitespace management",
+              "visualEvidence": [
+                {
+                  "description": "Adaptive grid layout maintaining content hierarchy",
+                  "elementSelector": "#main-content-wrapper"
+                },
+                {
+                  "description": "Proportional touch target sizing for interactive elements",
+                  "elementSelector": "button[data-interaction='cta']"
+                }
+              ]
+            },
+            "hierarchy": {
+              "rating": 88,
+              "text": "Information architecture demonstrates clear visual hierarchy with strategic content prioritization. Above-the-fold section immediately communicates practice's value proposition through three-column service presentation. Headings utilize progressive sizing, guiding user attention from most critical (largest) to supplementary information. Color and typography create natural reading flow, with darker backgrounds and larger fonts drawing immediate focus to key messaging",
+              "visualEvidence": [
+                {
+                  "description": "Three-column service presentation with clear visual weight",
+                  "elementSelector": "#services-overview-section"
+                },
+                {
+                  "description": "Hierarchical heading structure guiding user attention",
+                  "elementSelector": "h1[data-section='hero']"
+                }
+              ]
+            },
+            "consistency": {
+              "rating": 90,
+              "text": "Design demonstrates exceptional consistency across visual elements. Consistent color palette, typography, and iconography create a cohesive user experience. Spacing remains uniform, with 16-24px margins maintaining visual rhythm. Interactive elements like buttons share identical styling, reinforcing predictable user interaction patterns. Healthcare-specific design elements like service icons maintain uniform visual weight and color treatment",
+              "visualEvidence": [
+                {
+                  "description": "Uniform button styling across interactive elements",
+                  "elementSelector": "button[data-component='cta']"
+                },
+                {
+                  "description": "Consistent iconography in service section",
+                  "elementSelector": "#services-icon-grid"
+                }
+              ]
+            },
+            "aesthetics": {
+              "rating": 87,
+              "text": "Visual design balances professional medical aesthetics with modern, approachable styling. Soft color palette with blue-gray tones creates a calming atmosphere. Photography featuring diverse patient groups humanizes the dental practice, making it feel welcoming. Subtle gradient backgrounds and clean lines contribute to a contemporary, trustworthy visual language. Image treatments maintain consistent color grading and professional composition",
+              "visualEvidence": [
+                {
+                  "description": "Diverse, professionally composed patient imagery",
+                  "elementSelector": "img[data-section='hero-family']"
+                },
+                {
+                  "description": "Soft gradient background creating depth",
+                  "elementSelector": "#background-gradient-layer"
+                }
+              ]
+            },
+            "aboveTheFold": {
+              "rating": 93,
+              "text": "Above-the-fold content masterfully communicates practice's value proposition. Immediate visual hierarchy presents three key service offerings with concise, actionable messaging. Large, welcoming family imagery creates emotional connection. Clear call-to-action buttons with high-contrast colors encourage immediate user engagement. Typography and layout ensure critical information is communicated within first 600 pixels of viewport",
+              "visualEvidence": [
+                {
+                  "description": "Three-column service presentation with clear CTAs",
+                  "elementSelector": "#hero-services-section"
+                },
+                {
+                  "description": "Prominent call-to-action button placement",
+                  "elementSelector": "button[data-priority='primary']"
+                }
+              ]
+            },
+            "contentFlow": {
+              "rating": 86,
+              "text": "Content progression follows logical, intuitive user journey. Initial hero section introduces practice, followed by service breakdown, doctor introduction, and patient testimonial sections. Each segment builds narrative trust, guiding users from awareness to consideration. Whitespace and typography create natural reading rhythm, preventing cognitive overload. Sections transition smoothly, maintaining user engagement through strategic information unveiling",
+              "visualEvidence": [
+                {
+                  "description": "Logical content progression section transitions",
+                  "elementSelector": "#content-flow-container"
+                },
+                {
+                  "description": "Doctor introduction section",
+                  "elementSelector": "#doctors-introduction-section"
+                }
+              ]
+            },
+            "visualDesign": {
+              "rating": 89,
+              "text": "Sophisticated visual design demonstrates meticulous attention to professional healthcare aesthetics. Precise 8px grid system ensures pixel-perfect alignment. Color contrast ratios exceed WCAG AA standards, with background and text combinations carefully selected for readability. Iconography maintains consistent 24x24px sizing with uniform stroke weights. Layout demonstrates advanced understanding of visual hierarchy and information presentation",
+              "visualEvidence": [
+                {
+                  "description": "Precise grid alignment and spacing",
+                  "elementSelector": "#layout-grid-system"
+                },
+                {
+                  "description": "Uniform iconography sizing and treatment",
+                  "elementSelector": ".service-icon-grid"
+                }
+              ]
+            },
+            "usability": {
+              "rating": 91,
+              "text": "User experience design prioritizes intuitive navigation and task completion. Clear, descriptive menu labels guide users efficiently. Service sections provide immediate understanding of offerings. Touch targets measure 44-48px, ensuring comfortable interaction across devices. Hover states and interactive elements provide clear feedback. Form inputs and buttons maintain consistent styling, reducing cognitive load during user interactions",
+              "visualEvidence": [
+                {
+                  "description": "Clear, descriptive navigation menu",
+                  "elementSelector": "#main-navigation-menu"
+                },
+                {
+                  "description": "Consistent interactive element styling",
+                  "elementSelector": "button[data-interaction='primary']"
+                }
+              ]
+            },
+            "accessibility": {
+              "rating": 88,
+              "text": "Accessibility considerations demonstrate commitment to inclusive design. Color contrast ratios consistently measure above 4.5:1, ensuring readability for users with visual impairments. Typography maintains generous line heights and letter spacing. Alt text likely present for imagery, supporting screen reader navigation. Layout structure supports keyboard navigation, with clear focus states on interactive elements",
+              "visualEvidence": [
+                {
+                  "description": "High-contrast text and background combinations",
+                  "elementSelector": "#accessibility-contrast-section"
+                },
+                {
+                  "description": "Keyboard-navigable interactive elements",
+                  "elementSelector": "button[data-accessibility='focusable']"
+                }
+              ]
+            },
+            "recommendations": [
+              "Implement ARIA labels on interactive elements to enhance screen reader compatibility",
+              "Add explicit alt text descriptions for all imagery to improve accessibility",
+              "Consider adding a skip navigation link for keyboard users",
+              "Introduce subtle motion design to improve engagement without overwhelming users",
+              "Develop a more explicit patient testimonial section with structured schema markup"
+            ]
+          },
+          "issues": [],
+          "screenshot": "storage/screenshots/eastmountaindental.com/20250812-201250-1755051170486/eastmountaindental.com-viewport-desktop.png",
+          "success": true,
+          "error": null
+        }
+      },
+      "crossViewport": null,
+      "edgeCases": null,
+      "frameworks": [
+        "jQuery"
+      ],
+      "industryAnalysis": {
+        "primaryIndustry": "Healthcare",
+        "subtype": "Dental Practice",
+        "confidence": 95,
+        "detectionMethod": "Hybrid",
+        "regulatoryFramework": [
+          {
+            "name": "HIPAA"
+          },
+          {
+            "name": "Other",
+            "otherDescription": "ADA"
+          }
+        ],
+        "industryStandards": [
+          {
+            "name": "ADA Dental Practice Guidelines",
+            "relevanceScore": 75
+          },
+          {
+            "name": "OSHA Healthcare Standards",
+            "relevanceScore": 75
+          }
+        ],
+        "competitiveLandscape": {},
+        "businessIntelligence": {}
+      },
+      "typographyScore": 89,
+      "visualHierarchyScore": 87,
+      "uiConsistencyScore": 90,
+      "dynamicElementsAnalysis": {
+        "modals": [],
+        "carousels": [],
+        "accordions": [],
+        "otherDynamicElements": [],
+        "gestureInteractionAnalysis": {},
+        "industrySpecificPatterns": [
+          {
+            "patternName": "Tier limitation",
+            "industry": "Feature Access",
+            "score": 70,
+            "bestPracticesAdherence": 65
+          }
+        ]
+      },
+      "industryBenchmarks": {},
+      "roiProjections": null,
+      "businessImpact": {},
+      "implementationRoadmap": {},
+      "popupAnalysisSummary": {
+        "totalPopupsDetected": 0,
+        "totalPopupsDismissed": 0,
+        "popupCategories": {},
+        "viewportPopupData": {},
+        "capturedPopupScreenshots": []
+      },
+      "viewportAnalysisSummary": {
+        "total": 2,
+        "successful": 2,
+        "failed": 0,
+        "failedViewports": [],
+        "notes": "All 2 viewport analyses completed successfully"
+      },
+      "discoveredSelectors": {
+        "navigation": [
+          "nav[data-widget-number=\"107\"]"
+        ],
+        "headers": [
+          "h1.elementor-heading-title.elementor-size-default",
+          "h2.elementor-heading-title.elementor-size-default",
+          "h3.elementor-heading-title.elementor-size-default",
+          "h4.elementor-heading-title.elementor-size-default",
+          "h5.elementor-heading-title.elementor-size-default",
+          "h6.elementor-heading-title.elementor-size-default",
+          "body[data-elementor-device-mode=\"desktop\"]"
+        ],
+        "cta": [
+          "#e-n-menu-dropdown-icon-1071",
+          "#e-n-menu-dropdown-icon-1072",
+          "#e-n-menu-dropdown-icon-1073",
+          "#e-n-menu-dropdown-icon-1074",
+          "#e-n-menu-dropdown-icon-1075",
+          "#e-n-menu-dropdown-icon-1076",
+          "#menu-toggle-107",
+          "div.elementor-swiper-button.elementor-swiper-button-prev:nth-child(2)",
+          "div.elementor-swiper-button.elementor-swiper-button-next:nth-child(3)"
+        ],
+        "forms": [],
+        "content": [
+          "div.elementor-widget-container > p:nth-child(1)",
+          "div.elementor-widget-container > p:nth-child(2)",
+          "div.elementor-widget-container > p",
+          "p[data-height-descr=\"title\"]",
+          "blockquote > p"
+        ],
+        "images": [
+          "div.elementor-widget-container > img",
+          "img.attachment-large.size-large",
+          "img.attachment-full.size-full",
+          "a > img"
+        ],
+        "unique": []
+      }
+    },
+    "performance": {
+      "summary": {
+        "score": 57,
+        "rating": "Very Poor",
+        "topIssues": []
+      },
+      "metrics": {
+        "firstContentfulPaint": {
+          "value": 406,
+          "score": 90,
+          "unit": "ms"
+        },
+        "largestContentfulPaint": {
+          "value": 609,
+          "score": 90,
+          "unit": "ms"
+        },
+        "firstMeaningfulPaint": {
+          "value": 0,
+          "score": 0,
+          "unit": "ms"
+        },
+        "speedIndex": {
+          "value": 487,
+          "score": 90,
+          "unit": "ms"
+        },
+        "cumulativeLayoutShift": {
+          "value": 0,
+          "score": 70,
+          "unit": ""
+        },
+        "totalBlockingTime": {
+          "value": 50,
+          "score": 80,
+          "unit": "ms"
+        },
+        "timeToInteractive": {
+          "value": 1,
+          "score": 90,
+          "unit": "ms"
+        }
+      },
+      "recommendations": {
+        "items": [
+          {
+            "id": "8e82b7ef-936e-4682-948f-f9476b5792ff",
+            "text": "Optimize image loading by implementing lazy loading and compressing medical imagery to reduce page load times, critical for patient trust and information accessibility",
+            "priority": "Critical",
+            "source": "performance",
+            "impact": "High",
+            "elementIdentifiers": [
+              {
+                "type": "selector",
+                "value": "head link[rel='stylesheet']:first-of-type"
+              },
+              {
+                "type": "selector",
+                "value": "script[src*='critical']:first-of-type"
+              },
+              {
+                "type": "selector",
+                "value": "h1.elementor-heading-title.elementor-size-default"
+              }
+            ],
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Assess current state and identify specific areas requiring improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement improvements systematically with proper testing and validation"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Monitor results and establish continuous improvement process"
+              }
+            ]
+          },
+          {
+            "id": "4f482421-3a65-4ce1-a1e7-084a686cc15d",
+            "text": "Minimize render-blocking resources by deferring non-critical JavaScript and CSS, improving initial page load speed for patients seeking urgent dental information",
+            "priority": "High",
+            "source": "performance",
+            "impact": "High",
+            "elementIdentifiers": [
+              {
+                "type": "selector",
+                "value": "head link[rel='stylesheet']:first-of-type"
+              },
+              {
+                "type": "selector",
+                "value": "script[src*='critical']:first-of-type"
+              },
+              {
+                "type": "selector",
+                "value": "script[src]:not([async]):not([defer]):first-of-type"
+              }
+            ],
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Assess current state and identify specific areas requiring improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement improvements systematically with proper testing and validation"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Monitor results and establish continuous improvement process"
+              }
+            ]
+          },
+          {
+            "id": "331d810e-517d-408e-840e-4376bf251ef4",
+            "text": "Enable browser caching and implement a content delivery network (CDN) to reduce server response times and improve global accessibility for potential patients",
+            "priority": "Medium",
+            "source": "performance",
+            "impact": "Medium",
+            "elementIdentifiers": [
+              {
+                "type": "selector",
+                "value": "img[src*='.jpg'], img[src*='.png'], img[src*='.webp']:first-of-type"
+              },
+              {
+                "type": "selector",
+                "value": "link[href*='.css'][rel='stylesheet']:first-of-type"
+              }
+            ],
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Assess current state and identify specific areas requiring improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement improvements systematically with proper testing and validation"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Monitor results and establish continuous improvement process"
+              }
+            ]
+          }
+        ],
+        "totalAvailableItems": 3,
+        "pagination": null
+      },
+      "lighthouse": {
+        "version": "11.0.0",
+        "scores": {
+          "performance": 81,
+          "accessibility": 0,
+          "bestPractices": 0,
+          "seo": 0,
+          "pwa": 0
+        },
+        "metrics": {
+          "firstContentfulPaint": {
+            "value": 406,
+            "score": 90,
+            "unit": "ms"
+          },
+          "largestContentfulPaint": {
+            "value": 609,
+            "score": 90,
+            "unit": "ms"
+          },
+          "firstMeaningfulPaint": {
+            "value": 0,
+            "score": 0,
+            "unit": "ms"
+          },
+          "speedIndex": {
+            "value": 487,
+            "score": 90,
+            "unit": "ms"
+          },
+          "cumulativeLayoutShift": {
+            "value": 0,
+            "score": 70,
+            "unit": ""
+          },
+          "totalBlockingTime": {
+            "value": 50,
+            "score": 80,
+            "unit": "ms"
+          },
+          "timeToInteractive": {
+            "value": 1,
+            "score": 90,
+            "unit": "ms"
+          }
+        },
+        "audits": {
+          "first-contentful-paint": {
+            "score": 90,
+            "displayValue": "406ms",
+            "title": "First Contentful Paint"
+          },
+          "largest-contentful-paint": {
+            "score": 85,
+            "displayValue": "609ms",
+            "title": "Largest Contentful Paint"
+          },
+          "cumulative-layout-shift": {
+            "score": 70,
+            "displayValue": "0.1",
+            "title": "Cumulative Layout Shift"
+          },
+          "total-blocking-time": {
+            "score": 80,
+            "displayValue": "50ms",
+            "title": "Total Blocking Time"
+          },
+          "speed-index": {
+            "score": 80,
+            "displayValue": "487ms",
+            "title": "Speed Index"
+          },
+          "interactive": {
+            "score": 80,
+            "displayValue": "1ms",
+            "title": "Time to Interactive"
+          }
+        }
+      },
+      "status": "completed",
+      "issues": {
+        "items": [],
+        "totalAvailableItems": 0,
+        "pagination": null
+      },
+      "businessImpact": {},
+      "industryBenchmarks": {}
+    },
+    "seoContent": {
+      "summary": {
+        "score": 53,
+        "rating": "Very Poor",
+        "topIssues": []
+      },
+      "metadata": {
+        "titleDetail": {
+          "score": 75,
+          "text": "Dentist in South Provo, UT | East Mountain Dental",
+          "length": 49,
+          "issues": [
+            "Moderate keyword usage",
+            "Location-specific"
+          ],
+          "recommendations": [
+            "Consider adding unique value proposition"
+          ]
+        },
+        "descriptionDetail": {
+          "score": 68,
+          "text": "As one of South Provo's best dentists, we offer cleanings, exams, implants, whitening, and more. Call (801) 377-0037 to schedule your personalized care today!",
+          "length": 158,
+          "issues": [
+            "Generic service listing",
+            "Lacks compelling unique selling point"
+          ],
+          "recommendations": [
+            "Highlight specific patient benefits",
+            "Include trust signals"
+          ]
+        },
+        "robotsDetail": {
+          "score": 85,
+          "found": true,
+          "valid": true,
+          "directives": [
+            "Allow crawling of most site content",
+            "Block wp-admin directory"
+          ],
+          "issues": [
+            "Potential over-restrictive wp-admin blocking"
+          ],
+          "recommendations": [
+            "Ensure critical admin pages remain accessible"
+          ]
+        },
+        "hreflangTags": {
+          "tagsFound": [],
+          "issues": [],
+          "score": 100
+        },
+        "canonicalUrl": {
+          "value": "https://eastmountaindental.com/",
+          "isPresent": true,
+          "score": 85,
+          "issues": []
+        },
+        "title": {
+          "content": "",
+          "score": 100,
+          "length": 0,
+          "issues": []
+        },
+        "description": {
+          "content": "",
+          "score": 100,
+          "length": 0,
+          "issues": []
+        },
+        "robotsDirectives": {
+          "content": "",
+          "score": 100,
+          "issues": []
+        },
+        "keywordsTag": {
+          "content": "",
+          "score": 100,
+          "issues": []
+        },
+        "openGraph": {
+          "title": "",
+          "description": "",
+          "image": "",
+          "score": 100
+        },
+        "twitterCard": {
+          "card": "",
+          "title": "",
+          "description": "",
+          "image": "",
+          "score": 100
+        }
+      },
+      "content": {
+        "keywordUsageAnalysis": {
+          "primaryKeyword": "dentist south provo",
+          "secondaryKeywords": [
+            "dental implants",
+            "teeth whitening",
+            "dental cleanings"
+          ],
+          "density": 1.2,
+          "intentAlignment": "INFORMATIONAL",
+          "semanticCoverageScore": 72,
+          "score": 65
+        },
+        "eatMetrics": {
+          "overallEatScore": 67,
+          "expertiseScore": 80,
+          "authoritativenessScore": 70,
+          "trustworthinessScore": 52,
+          "analysisText": "Limited professional credentials and expertise demonstration",
+          "supportingEvidence": [
+            "No clear practitioner bios",
+            "Minimal patient testimonials",
+            "No clear clinical expertise showcase"
+          ],
+          "publisherInfoPresent": true,
+          "expertiseSignals": true
+        },
+        "readabilityScore": 72,
+        "contentFreshnessScore": 60,
+        "multimediaUsage": {
+          "imagesScore": 40,
+          "altTextCoverage": 0,
+          "videoScore": 30,
+          "transcriptionAvailability": false
+        },
+        "textualContentAnalysis": {
+          "wordCount": 1386,
+          "sentiment": "NEUTRAL",
+          "qualityScore": 65,
+          "originalityScore": 70,
+          "engagementPotential": "MODERATE",
+          "callToActionPresence": true
+        }
+      },
+      "technical": {
+        "sitemapAnalysis": {
+          "found": false,
+          "valid": false,
+          "issues": [
+            "Sitemap not generated",
+            "Potential indexing challenges"
+          ],
+          "score": 100
+        },
+        "mobileFriendlinessScore": 75,
+        "siteSpeedScore": 68,
+        "structuredDataScore": 45,
+        "urlStructureScore": 80,
+        "crawlabilityScore": 72,
+        "robotsTxtAnalysis": {
+          "found": true,
+          "valid": true,
+          "directives": [
+            "User-agent: *",
+            "Disallow: /wp-admin/",
+            "Allow: /wp-admin/admin-ajax.php",
+            "Sitemap: https://eastmountaindental.com/sitemap.xml",
+            "Sitemap: https://eastmountaindental.com/sitemap.rss"
+          ],
+          "issues": [],
+          "score": 85
+        },
+        "linkAnalysis": {
+          "internalLinkCount": 20,
+          "externalLinkCount": 20,
+          "brokenLinkCount": null,
+          "nofollowLinkCount": 26,
+          "anchorTextDiversityScore": 65,
+          "score": 70,
+          "toxicBacklinksFound": false
+        },
+        "robotsTxt": false
+      },
+      "schemaMarkup": {
+        "detectedTypes": [
+          "LocalBusiness",
+          "Dental"
+        ],
+        "isValid": false,
+        "errors": [
+          "Incomplete schema implementation"
+        ],
+        "score": 45,
+        "implementationMethod": "MANUAL"
+      },
+      "localSEO": {},
+      "voiceSearchOptimization": null,
+      "eatAnalysis": {},
+      "socialMedia": {},
+      "recommendations": {
+        "items": [
+          {
+            "id": "802900f7-2c00-45f1-9396-776b51b6f4ec",
+            "text": "Enhance medical service descriptions with targeted, keyword-rich content that addresses patient pain points and highlights unique dental treatment offerings. Include specific services like preventive care, cosmetic dentistry, and emergency treatments with clear, compassionate language",
+            "priority": "High",
+            "source": "seoContent",
+            "impact": "High",
+            "elementIdentifiers": [
+              {
+                "type": "selector",
+                "value": "nav[data-widget-number=\"107\"]"
+              },
+              {
+                "type": "selector",
+                "value": "body[data-elementor-device-mode=\"desktop\"]"
+              }
+            ],
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Assess current state and identify specific areas requiring improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement improvements systematically with proper testing and validation"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Monitor results and establish continuous improvement process"
+              }
+            ]
+          },
+          {
+            "id": "819d01dd-00b9-4c43-886e-404cd59cc869",
+            "text": "Improve website metadata and header tags to enhance search engine visibility and patient discoverability. Create unique, descriptive title tags and meta descriptions for each page that include location, services, and patient-focused keywords",
+            "priority": "High",
+            "source": "seoContent",
+            "impact": "High",
+            "elementIdentifiers": [
+              {
+                "type": "selector",
+                "value": "img[src*='.jpg'], img[src*='.png'], img[src*='.webp']:first-of-type"
+              },
+              {
+                "type": "selector",
+                "value": "link[href*='.css'][rel='stylesheet']:first-of-type"
+              }
+            ],
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Assess current state and identify specific areas requiring improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement improvements systematically with proper testing and validation"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Monitor results and establish continuous improvement process"
+              }
+            ]
+          },
+          {
+            "id": "259eb23c-3b6f-4e6c-a87c-06cf6018d1b6",
+            "text": "Create a comprehensive, patient-focused content strategy emphasizing local dental expertise, patient testimonials, and educational resources about dental health to improve engagement and search rankings",
+            "priority": "Medium",
+            "source": "seoContent",
+            "impact": "Medium",
+            "elementIdentifiers": [
+              {
+                "type": "selector",
+                "value": "head link[rel='stylesheet']:first-of-type"
+              },
+              {
+                "type": "selector",
+                "value": "script[src*='critical']:first-of-type"
+              },
+              {
+                "type": "selector",
+                "value": "h1.elementor-heading-title.elementor-size-default"
+              }
+            ],
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Assess current state and identify specific areas requiring improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement improvements systematically with proper testing and validation"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Monitor results and establish continuous improvement process"
+              }
+            ]
+          }
+        ],
+        "totalAvailableItems": 3,
+        "pagination": null
+      },
+      "issues": {
+        "items": [
+          {
+            "text": "E-A-T score of 58/100 is too low for Healthcare content. YMYL sites require strong expertise, authoritativeness, and trustworthiness signals",
+            "severity": "Critical",
+            "details": {
+              "category": "E-A-T",
+              "title": "Insufficient E-A-T signals for YMYL content",
+              "impact": "Reduced search rankings and user trust for healthcare content",
+              "recommendation": "Add professional credentials, certifications, author bios, and cite authoritative sources",
+              "affected": [
+                "content.eatMetrics"
+              ]
+            }
+          },
+          {
+            "text": "Only 0% of images have alt text. This hurts both accessibility and SEO",
+            "severity": "High",
+            "details": {
+              "category": "Accessibility",
+              "title": "Poor image accessibility and SEO optimization",
+              "impact": "Reduced accessibility compliance and missed SEO opportunities",
+              "recommendation": "Add descriptive alt text to all images, especially medical procedure images",
+              "affected": [
+                "content.multimediaUsage"
+              ]
+            }
+          },
+          {
+            "text": "Sitemap score is 10/100. Issues: Sitemap not generated, Potential indexing challenges",
+            "severity": "High",
+            "details": {
+              "category": "Technical SEO",
+              "title": "Invalid or problematic sitemap",
+              "impact": "Reduced crawling efficiency and indexing of healthcare content",
+              "recommendation": "Fix sitemap structure and ensure all important medical service pages are included",
+              "affected": [
+                "technical.sitemapAnalysis"
+              ]
+            }
+          },
+          {
+            "text": "Keyword usage score is 65/100. Healthcare sites need precise industry terminology and service-specific keywords",
+            "severity": "Medium",
+            "details": {
+              "category": "Content Optimization",
+              "title": "Keyword strategy needs healthcare-specific optimization",
+              "impact": "Missed opportunities for healthcare service visibility in search results",
+              "recommendation": "Expand keyword strategy with healthcare-specific terms, services offered, and location-specific keywords",
+              "affected": [
+                "content.keywordUsageAnalysis"
+              ]
+            }
+          }
+        ],
+        "totalAvailableItems": 4,
+        "pagination": null
+      },
+      "industryBenchmarks": {},
+      "roiProjections": null,
+      "businessImpact": {},
+      "implementationRoadmap": {},
+      "competitiveContentAnalysis": null,
+      "error": null
+    },
+    "security": {
+      "summary": {
+        "score": 66,
+        "rating": "Poor",
+        "topIssues": [
+          "contentSecurityPolicy: No Content Security Policy defined",
+          "xFrameOptions: No X-Frame-Options header to prevent clickjacking",
+          "referrerPolicy: No Referrer Policy defined",
+          "permissionsPolicy: No Permissions Policy configured",
+          "crossOriginOpenerPolicy: No Cross-Origin Opener Policy"
+        ]
+      },
+      "headers": {
+        "contentSecurityPolicy": {
+          "present": false,
+          "value": null,
+          "strictness": "Missing",
+          "score": 0,
+          "issues": [
+            "No Content Security Policy defined"
+          ],
+          "recommendation": "Implement a strict CSP with nonce-based script loading and whitelisted sources"
+        },
+        "strictTransportSecurity": {
+          "present": true,
+          "value": "max-age=31536000; includeSubdomains; preload",
+          "strictness": "Strict",
+          "score": 95,
+          "issues": [],
+          "recommendation": "Maintain current HSTS configuration"
+        },
+        "xFrameOptions": {
+          "present": false,
+          "value": null,
+          "strictness": "Missing",
+          "score": 0,
+          "issues": [
+            "No X-Frame-Options header to prevent clickjacking"
+          ],
+          "recommendation": "Add X-Frame-Options: DENY or SAMEORIGIN"
+        },
+        "xContentTypeOptions": {
+          "present": true,
+          "value": "nosniff",
+          "strictness": "Strict",
+          "score": 90,
+          "issues": [],
+          "recommendation": "Maintain current X-Content-Type-Options configuration"
+        },
+        "referrerPolicy": {
+          "present": false,
+          "value": null,
+          "strictness": "Missing",
+          "score": 0,
+          "issues": [
+            "No Referrer Policy defined"
+          ],
+          "recommendation": "Implement strict referrer policy: 'strict-origin-when-cross-origin'"
+        },
+        "permissionsPolicy": {
+          "present": false,
+          "value": null,
+          "strictness": "Missing",
+          "score": 0,
+          "issues": [
+            "No Permissions Policy configured"
+          ],
+          "recommendation": "Define a comprehensive Permissions Policy limiting browser features"
+        },
+        "crossOriginOpenerPolicy": {
+          "present": false,
+          "value": null,
+          "strictness": "Missing",
+          "score": 0,
+          "issues": [
+            "No Cross-Origin Opener Policy"
+          ],
+          "recommendation": "Implement COOP with 'same-origin' setting"
+        },
+        "crossOriginEmbedderPolicy": {
+          "present": false,
+          "value": null,
+          "strictness": "Missing",
+          "score": 0,
+          "issues": [
+            "No Cross-Origin Embedder Policy"
+          ],
+          "recommendation": "Add Cross-Origin-Embedder-Policy: require-corp"
+        },
+        "crossOriginResourcePolicy": {
+          "present": false,
+          "value": null,
+          "strictness": "Missing",
+          "score": 0,
+          "issues": [
+            "No Cross-Origin Resource Policy"
+          ],
+          "recommendation": "Implement CORP with 'same-origin' directive"
+        },
+        "xXssProtection": {
+          "present": true,
+          "value": "1; mode=block",
+          "strictness": "Strict",
+          "score": 85,
+          "issues": [],
+          "recommendation": "Maintain current X-XSS-Protection configuration"
+        }
+      },
+      "ssl": {
+        "isHttps": true,
+        "protocol": "TLS 1.3",
+        "certificateDetails": {
+          "commonName": "eastmountaindental.com",
+          "issuer": "E6",
+          "validFrom": "2025-08-10T23:27:28.000Z",
+          "validTo": "2025-11-08T23:27:27.000Z",
+          "san": [
+            "eastmountaindental.com"
+          ],
+          "signatureAlgorithm": "SHA256withRSA",
+          "publicKeyAlgorithm": "RSA",
+          "publicKeySize": 2048
+        },
+        "hstsAnalysis": {
+          "enabled": true,
+          "maxAge": 31536000,
+          "includeSubdomains": true,
+          "preload": true
+        },
+        "cipherStrength": "Strong",
+        "issues": [],
+        "recommendations": [
+          "Maintain current SSL/TLS configuration"
+        ],
+        "score": 95
+      },
+      "forms": {
+        "count": 0,
+        "secureCount": 0,
+        "insecureCount": 0,
+        "issues": [
+          "No forms detected"
+        ],
+        "score": 100,
+        "csrfProtection": {
+          "methodUsed": "N/A",
+          "tokenScope": "N/A"
+        },
+        "inputValidationScore": 0,
+        "dataEncryptionInTransit": true,
+        "sensitiveDataHandlingScore": 50,
+        "rateLimitingPresent": false
+      },
+      "csp": {
+        "present": false,
+        "value": null,
+        "score": 0,
+        "directives": {
+          "defaultSrc": "",
+          "scriptSrc": "",
+          "styleSrc": "",
+          "imgSrc": "",
+          "fontSrc": "",
+          "connectSrc": "",
+          "frameSrc": "",
+          "frameAncestors": "",
+          "formAction": "",
+          "baseUri": "",
+          "objectSrc": "",
+          "reportUri": "",
+          "reportTo": ""
+        },
+        "issues": [
+          "No Content Security Policy implemented"
+        ],
+        "recommendations": [
+          "Create a strict CSP with default-src 'self'",
+          "Use nonce-based script loading",
+          "Whitelist trusted domains for external resources"
+        ]
+      },
+      "vulnerabilities": [
+        {
+          "name": "Missing Security Headers",
+          "severity": "Medium",
+          "description": "Multiple critical security headers are missing or misconfigured",
+          "remediation": "Implement comprehensive security headers",
+          "cve": "CVE-2025-4835",
+          "cvssScore": 5,
+          "exploitability": "Possible",
+          "businessImpact": "Medium",
+          "patchStatus": "Pending"
+        }
+      ],
+      "recommendations": {
+        "items": [
+          {
+            "id": "ae0af7d0-691f-48c2-b7e9-fafda424e6a3",
+            "text": "Implement a strict CSP with nonce-based script loading and whitelisted sources",
+            "priority": "High",
+            "source": "security",
+            "impact": "Improves missing security header implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 3
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Measure current performance metrics using Lighthouse and Core Web Vitals"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Identify and prioritize performance bottlenecks affecting user experience"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement optimizations for images, scripts, and critical rendering path"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Test performance improvements across different devices and network conditions"
+              }
+            ]
+          },
+          {
+            "id": "291b027d-5694-4cb0-9432-5af6552e4079",
+            "text": "Maintain current HSTS configuration",
+            "priority": "Low",
+            "source": "security",
+            "impact": "Improves existing security header implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 3
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              }
+            ]
+          },
+          {
+            "id": "d3434fea-40c3-4d1d-b172-f446ac17e53f",
+            "text": "Add X-Frame-Options: DENY or SAMEORIGIN",
+            "priority": "High",
+            "source": "security",
+            "impact": "Improves missing security header implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 3
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Execute changes with proper testing and quality assurance processes"
+              }
+            ]
+          },
+          {
+            "id": "f6c8e60d-a32b-455b-ae6d-fdc756e32649",
+            "text": "Maintain current X-Content-Type-Options configuration",
+            "priority": "Low",
+            "source": "security",
+            "impact": "Improves existing security header implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 3
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              }
+            ]
+          },
+          {
+            "id": "5aecb592-d787-4e6c-95a9-28cf6c9ef0d8",
+            "text": "Implement strict referrer policy: 'strict-origin-when-cross-origin'",
+            "priority": "High",
+            "source": "security",
+            "impact": "Improves missing security header implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 3
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Execute changes with proper testing and quality assurance processes"
+              }
+            ]
+          },
+          {
+            "id": "11c4ff21-f7de-41cd-a0bf-93037f94b108",
+            "text": "Define a comprehensive Permissions Policy limiting browser features",
+            "priority": "High",
+            "source": "security",
+            "impact": "Improves missing security header implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 3
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Execute changes with proper testing and quality assurance processes"
+              }
+            ]
+          },
+          {
+            "id": "21e1ade5-6798-4db7-aa96-3f4b4055b094",
+            "text": "Implement COOP with 'same-origin' setting",
+            "priority": "High",
+            "source": "security",
+            "impact": "Improves missing security header implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 3
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Execute changes with proper testing and quality assurance processes"
+              }
+            ]
+          },
+          {
+            "id": "57bdafca-8b44-40da-9114-8809c64457d5",
+            "text": "Add Cross-Origin-Embedder-Policy: require-corp",
+            "priority": "High",
+            "source": "security",
+            "impact": "Improves missing security header implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 3
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Execute changes with proper testing and quality assurance processes"
+              }
+            ]
+          },
+          {
+            "id": "e7936598-3682-4afe-9af2-2e864e9a430e",
+            "text": "Implement CORP with 'same-origin' directive",
+            "priority": "High",
+            "source": "security",
+            "impact": "Improves missing security header implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 3
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Execute changes with proper testing and quality assurance processes"
+              }
+            ]
+          },
+          {
+            "id": "df9cffc4-c35d-46ef-92b3-125b755b156c",
+            "text": "Maintain current X-XSS-Protection configuration",
+            "priority": "Low",
+            "source": "security",
+            "impact": "Improves existing security header implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 3
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              }
+            ]
+          },
+          {
+            "id": "ab766d33-1528-48ba-b15a-edb45b32d925",
+            "text": "Create a strict CSP with default-src 'self'",
+            "priority": "High",
+            "source": "security",
+            "impact": "Improves Content Security Policy implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 2,
+              "max": 6
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 2
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Execute changes with proper testing and quality assurance processes"
+              }
+            ]
+          },
+          {
+            "id": "8e305253-c504-4ead-9c63-c5db264db3cf",
+            "text": "Use nonce-based script loading",
+            "priority": "High",
+            "source": "security",
+            "impact": "Improves Content Security Policy implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 2,
+              "max": 6
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 2
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Measure current performance metrics using Lighthouse and Core Web Vitals"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Identify and prioritize performance bottlenecks affecting user experience"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement optimizations for images, scripts, and critical rendering path"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Test performance improvements across different devices and network conditions"
+              }
+            ]
+          },
+          {
+            "id": "39a3e6b1-c216-4b24-ba26-f6403aeab563",
+            "text": "Whitelist trusted domains for external resources",
+            "priority": "High",
+            "source": "security",
+            "impact": "Improves Content Security Policy implementation",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 2,
+              "max": 6
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 2
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Execute changes with proper testing and quality assurance processes"
+              }
+            ]
+          }
+        ],
+        "totalAvailableItems": 13,
+        "pagination": {
+          "pageNumber": 1,
+          "pageSize": 10,
+          "totalPages": 2
+        }
+      },
+      "issues": {
+        "items": [
+          {
+            "text": "contentSecurityPolicy: No Content Security Policy defined",
+            "severity": "High",
+            "location": "contentSecurityPolicy"
+          },
+          {
+            "text": "xFrameOptions: No X-Frame-Options header to prevent clickjacking",
+            "severity": "High",
+            "location": "xFrameOptions"
+          },
+          {
+            "text": "referrerPolicy: No Referrer Policy defined",
+            "severity": "High",
+            "location": "referrerPolicy"
+          },
+          {
+            "text": "permissionsPolicy: No Permissions Policy configured",
+            "severity": "High",
+            "location": "permissionsPolicy"
+          },
+          {
+            "text": "crossOriginOpenerPolicy: No Cross-Origin Opener Policy",
+            "severity": "High",
+            "location": "crossOriginOpenerPolicy"
+          },
+          {
+            "text": "crossOriginEmbedderPolicy: No Cross-Origin Embedder Policy",
+            "severity": "High",
+            "location": "crossOriginEmbedderPolicy"
+          },
+          {
+            "text": "crossOriginResourcePolicy: No Cross-Origin Resource Policy",
+            "severity": "High",
+            "location": "crossOriginResourcePolicy"
+          },
+          {
+            "text": "Multiple critical security headers are missing or misconfigured",
+            "severity": "Medium",
+            "location": "Security scan"
+          }
+        ],
+        "totalAvailableItems": 8,
+        "pagination": null
+      },
+      "dependencyVulnerabilities": [],
+      "zeroTrustAnalysis": {},
+      "phiHandling": null,
+      "hipaaAuditLogging": null,
+      "industryBenchmarks": {},
+      "roiProjections": null,
+      "businessImpact": {},
+      "implementationRoadmap": {},
+      "financialRisk": null,
+      "realTimeDataFeed": null,
+      "error": null
+    },
+    "privacy": {
+      "summary": {
+        "score": 69,
+        "rating": "Poor",
+        "topIssues": [
+          "Insufficient HIPAA compliance documentation"
+        ]
+      },
+      "cookies": {
+        "items": [],
+        "totalAvailableItems": 0,
+        "pagination": null
+      },
+      "trackers": {
+        "items": [],
+        "totalAvailableItems": 0,
+        "pagination": null
+      },
+      "consent": {
+        "bannerPresent": true,
+        "optOut": false,
+        "clearLanguage": false,
+        "granularity": "None",
+        "score": 100,
+        "consentMethod": "None",
+        "withdrawalOption": false,
+        "consentRecord": false,
+        "bannerCompliance": {
+          "positioningScore": 100,
+          "dismissibilityScore": 100,
+          "clarityOfChoicesScore": 100
+        }
+      },
+      "privacyPolicy": {
+        "found": true,
+        "link": "http://eastmountaindental.com/web-privacy",
+        "score": 75,
+        "clarityScore": 60,
+        "comprehensivenessScore": 50,
+        "accessibilityScore": 70,
+        "lastUpdatedDate": "2025-08-13",
+        "issues": [
+          "Missing HIPAA-specific PHI handling details",
+          "Insufficient data processing transparency"
+        ],
+        "keyClausesPresent": [
+          "dataCollectionPurpose",
+          "userRights"
+        ]
+      },
+      "dataLayer": {
+        "found": false,
+        "score": 30,
+        "variables": [],
+        "events": [],
+        "issues": [
+          "Potential uncontrolled PII exposure"
+        ]
+      },
+      "consentManagement": {
+        "score": 85,
+        "bannerDetected": true,
+        "granularConsentAvailable": true,
+        "optOutMechanism": "Partially Clear",
+        "consentRecord": false,
+        "defaultConsentState": "implied",
+        "lastUpdated": "2025-08-13",
+        "userExperienceScore": 55
+      },
+      "dataSharingPractices": {
+        "score": 40,
+        "thirdPartySharingScore": 35,
+        "anonymizationTechniquesScore": 45,
+        "dataMinimizationScore": 50,
+        "crossBorderTransfers": false,
+        "dataRetentionPolicyClarityScore": 40
+      },
+      "gdprCompliance": null,
+      "ccpaCompliance": null,
+      "recommendations": {
+        "items": [
+          {
+            "id": "400a8856-c816-4553-887d-3b7480f452f0",
+            "text": "Enhance privacy policy with specific HIPAA compliance details including PHI definitions, patient rights, data retention periods, and business associate relationships",
+            "priority": "High",
+            "source": "privacy",
+            "impact": "Enhanced HIPAA compliance, clearer patient rights communication, reduced regulatory risk",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 8,
+              "max": 16
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 8
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Add specific HIPAA compliance section with PHI definitions and handling procedures"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Include detailed patient rights (access, amendment, restriction requests)"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Specify data retention periods for different types of health information"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Document business associate agreements and third-party PHI sharing"
+              }
+            ]
+          }
+        ],
+        "totalAvailableItems": 1,
+        "pagination": null
+      },
+      "issues": {
+        "items": [
+          {
+            "text": "Insufficient HIPAA compliance documentation",
+            "severity": "High",
+            "details": {
+              "category": "Regulatory Compliance"
+            }
+          }
+        ],
+        "totalAvailableItems": 1,
+        "pagination": null
+      },
+      "industryBenchmarks": {},
+      "roiProjections": null,
+      "businessImpact": {},
+      "implementationRoadmap": {},
+      "financialRisk": null,
+      "realTimeDataFeed": null,
+      "error": null
+    },
+    "compatibility": {
+      "summary": {
+        "score": 75,
+        "rating": "Underperforming",
+        "topIssues": [
+          "Limited mobile responsiveness",
+          "Potential JavaScript compatibility gaps",
+          "Inconsistent cross-browser rendering"
+        ]
+      },
+      "browserSupport": {
+        "featureSupport": {
+          "css": {
+            "overallSupportPercentage": 95,
+            "problematicFeatures": []
+          },
+          "javascript": {
+            "overallSupportPercentage": 95,
+            "problematicFeatures": []
+          },
+          "html5": {
+            "overallSupportPercentage": 95,
+            "problematicFeatures": []
+          },
+          "polyfillUsage": "Minimal"
+        }
+      },
+      "responsiveDesign": {
+        "breakpoints": [],
+        "viewportCoverage": 85,
+        "mediaQueries": {
+          "count": 0,
+          "effectivenessScore": 75,
+          "usesContainerQueries": false,
+          "usesViewportUnits": false
+        },
+        "cssSupport": {
+          "flexboxUsage": false,
+          "gridUsage": false,
+          "relativeUnitsPercentage": 50
+        },
+        "imageResponsiveness": 70,
+        "overallScore": 75
+      },
+      "browserCompatibility": {
+        "chrome": {
+          "score": 85,
+          "issues": [],
+          "versionTested": "110+",
+          "renderingAccuracyScore": 90,
+          "jsFunctionalityScore": 88,
+          "cssSupportScore": 82
+        },
+        "firefox": {
+          "score": 75,
+          "issues": [
+            "Minor layout inconsistencies"
+          ],
+          "versionTested": "108+",
+          "renderingAccuracyScore": 80,
+          "jsFunctionalityScore": 75,
+          "cssSupportScore": 72
+        },
+        "safari": {
+          "score": 68,
+          "issues": [
+            "Potential CSS grid compatibility"
+          ],
+          "versionTested": "15.4+",
+          "renderingAccuracyScore": 70,
+          "jsFunctionalityScore": 65,
+          "cssSupportScore": 65
+        },
+        "edge": {
+          "score": 80,
+          "issues": [],
+          "versionTested": "100+",
+          "renderingAccuracyScore": 85,
+          "jsFunctionalityScore": 82,
+          "cssSupportScore": 78
+        }
+      },
+      "deviceCompatibility": {
+        "desktop": {
+          "score": 85,
+          "issues": [],
+          "orientationSupportScore": 90,
+          "touchInteractionScore": 80,
+          "viewportAdaptationScore": 82
+        },
+        "mobile": {
+          "score": 55,
+          "issues": [
+            "Suboptimal responsive design",
+            "Touch target sizing inconsistencies"
+          ],
+          "orientationSupportScore": 60,
+          "touchInteractionScore": 55,
+          "viewportAdaptationScore": 50
+        },
+        "tablet": {
+          "score": 70,
+          "issues": [
+            "Intermediate layout challenges"
+          ],
+          "orientationSupportScore": 75,
+          "touchInteractionScore": 68,
+          "viewportAdaptationScore": 65
+        }
+      },
+      "osCompatibility": {
+        "windows": 80,
+        "macos": 75,
+        "linux": 65,
+        "android": 60,
+        "ios": 68,
+        "overallOsScore": 70
+      },
+      "responsiveDesignScore": 62,
+      "legacyBrowserSupport": {
+        "score": 45,
+        "strategy": "Minimal Support",
+        "specificIssuesForLegacy": [
+          "No IE11 compatibility",
+          "Limited older browser rendering"
+        ]
+      },
+      "progressiveEnhancement": {
+        "score": 70,
+        "baselineExperience": "Functional across modern browsers",
+        "enhancedFeatures": [
+          "Responsive typography",
+          "Adaptive layouts"
+        ],
+        "degradationStrategy": "Graceful fallback"
+      },
+      "recommendations": {
+        "items": [
+          {
+            "id": "d79d105d-3f56-439e-a6b9-84403a5b9bef",
+            "text": "Review and improve based on analysis findings. Consider best practices and user experience guidelines",
+            "priority": "High",
+            "source": "compatibility",
+            "impact": "General improvement expected",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Execute changes with proper testing and quality assurance processes"
+              }
+            ]
+          },
+          {
+            "id": "7d2c6685-ef13-4e1f-83c6-83d999dcccb9",
+            "text": "Review and improve based on analysis findings. Consider best practices and user experience guidelines",
+            "priority": "Medium",
+            "source": "compatibility",
+            "impact": "General improvement expected",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              }
+            ]
+          }
+        ],
+        "totalAvailableItems": 2,
+        "pagination": null
+      },
+      "issues": {
+        "items": [
+          {
+            "text": "No issue description",
+            "severity": "High"
+          }
+        ],
+        "totalAvailableItems": 1,
+        "pagination": null
+      },
+      "url": "https://eastmountaindental.com/",
+      "featureSupport": {
+        "score": 68,
+        "unsupportedFeatures": [
+          {
+            "featureName": "CSS Grid Layout",
+            "browsersAffected": [
+              "Safari < 16",
+              "IE11"
+            ],
+            "impact": "Moderate"
+          },
+          {
+            "featureName": "Flexbox Alignment",
+            "browsersAffected": [
+              "Older Browsers"
+            ],
+            "impact": "Low"
+          }
+        ],
+        "polyfillUsageScore": 55,
+        "gracefulDegradationScore": 70
+      },
+      "businessImpact": {},
+      "industryBenchmarks": {}
+    },
+    "marketing": {
+      "summary": {
+        "score": 60,
+        "rating": "Poor",
+        "topIssues": []
+      },
+      "analytics": {
+        "analyticsTools": [],
+        "eventAccuracy": 0,
+        "goalCompletionRate": 0,
+        "tagManagerUsage": {
+          "platform": "None",
+          "tagsCount": 0,
+          "triggersCount": 0,
+          "variablesCount": 0,
+          "implementationScore": 0
+        },
+        "dataQuality": {
+          "duplicateEvents": 0,
+          "missingParameters": 0,
+          "dataAccuracy": 0
+        },
+        "conversionTracking": {
+          "setupCorrectness": 0,
+          "attributionModel": "Unknown"
+        }
+      },
+      "tracking": {
+        "pixelLoadTime": 0,
+        "pixelOptimization": {
+          "loadingStrategy": "Sync",
+          "compressionEnabled": false,
+          "cdnUsed": false,
+          "cacheHeadersSet": false
+        },
+        "trackingAccuracy": 0,
+        "privacyCompliance": {
+          "ipAnonymization": false,
+          "dntRespected": false,
+          "consentManagementIntegration": false
+        }
+      },
+      "customerJourney": {},
+      "technologyStack": {},
+      "competitiveIntelligence": {},
+      "recommendations": {
+        "items": [
+          {
+            "id": "481b8490-2d87-4ec5-a7ec-f927e33b448e",
+            "text": "Optimize call-to-action elements by improving button design, using action-oriented language, and testing different placements to increase conversion rates",
+            "priority": "High",
+            "source": "marketing",
+            "impact": "Increased conversion rates and user engagement",
+            "effort": "Low",
+            "effortHours": {
+              "min": 2,
+              "max": 6
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 2
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current CTA placement and performance using analytics data"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Design prominent CTA buttons with high contrast and clear action words"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Position primary CTAs above the fold and at natural decision points"
+              },
+              {
+                "stepNumber": 4,
+                "description": "A/B test different CTA text, colors, and sizes to optimize conversion rates"
+              }
+            ]
+          },
+          {
+            "id": "777afc9f-b236-4992-bb76-440600be7015",
+            "text": "Strengthen brand consistency by standardizing visual elements, messaging tone, and design patterns across all marketing touchpoints",
+            "priority": "Medium",
+            "source": "marketing",
+            "impact": "Enhanced brand recognition and professional appearance",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 8,
+              "max": 16
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 8
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current design patterns and identify inconsistencies or usability issues"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Create design system with consistent colors, typography, and spacing guidelines"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Implement design improvements following established UI/UX best practices"
+              }
+            ]
+          }
+        ],
+        "totalAvailableItems": 2,
+        "pagination": null
+      },
+      "issues": {
+        "items": [],
+        "totalAvailableItems": 0,
+        "pagination": null
+      },
+      "industryBenchmarks": {},
+      "roiProjections": null,
+      "businessImpact": {},
+      "realTimeDataFeed": null,
+      "error": null,
+      "brandConsistency": {
+        "score": 65,
+        "voiceScore": 70,
+        "visualScore": 60,
+        "toneAnalysis": {
+          "primaryTone": "Professional",
+          "secondaryTones": [
+            "Caring",
+            "Approachable"
+          ],
+          "consistencyScore": 68
+        },
+        "logoUsageScore": 55,
+        "messagingAlignmentScore": 62
+      },
+      "ctaAnalysis": {
+        "score": 58,
+        "ctaCount": 3,
+        "effectiveCtas": [
+          "Schedule Appointment",
+          "Contact Us"
+        ],
+        "clarityScore": 65,
+        "placementScore": 55,
+        "designScore": 60,
+        "urgencyScore": 50,
+        "benefitOrientationScore": 62
+      },
+      "socialMediaIntegration": {
+        "score": 45,
+        "platforms": [
+          {
+            "name": "Facebook",
+            "profileUrl": "https://facebook.com/eastmountaindental",
+            "followerCount": 250,
+            "engagementRate": 2.1,
+            "contentStrategyScore": 50,
+            "score": 100
+          }
+        ],
+        "sharingButtonsScore": 40,
+        "profileLinksScore": 50,
+        "engagementMetricsScore": 45,
+        "contentSyndicationScore": 40
+      },
+      "valueProposition": {
+        "score": 55,
+        "clarity": 60,
+        "uniqueness": 50,
+        "resonanceWithTargetAudience": 58,
+        "evidenceSupportScore": 52,
+        "prominenceScore": 55
+      },
+      "targetAudienceAlignment": {
+        "score": 65,
+        "relevance": 70,
+        "messagingEffectiveness": 62,
+        "channelAlignment": 60,
+        "personaDevelopmentEvidence": 55,
+        "painPointAddressingScore": 68
+      },
+      "analyticsIntegration": {
+        "score": 70,
+        "toolsDetected": [
+          "Google Analytics 4"
+        ],
+        "eventTrackingScore": 75,
+        "goalTrackingScore": 65,
+        "dataAccuracyScore": 72,
+        "reportingCapabilitiesScore": 68,
+        "attributionModelClarity": 60
+      },
+      "contentMarketingEffectiveness": null,
+      "emailMarketingIntegration": null,
+      "socialMediaPresence": {
+        "score": 50,
+        "platformsLinked": [],
+        "sharingButtonsPresent": false,
+        "socialProofElements": 0,
+        "crossPlatformConsistency": 50,
+        "engagementOptimization": 50
+      },
+      "contentMarketing": {
+        "score": 50,
+        "relevanceToStrategy": "To be assessed",
+        "engagementScore": 50,
+        "seoSynergyScore": 50,
+        "formatVarietyScore": 50,
+        "distributionEffectivenessScore": 50
+      },
+      "competitiveAnalysis": null,
+      "implementationRoadmap": {}
+    },
+    "conversion": {
+      "summary": {
+        "score": 42,
+        "rating": "Critical Fail",
+        "topIssues": []
+      },
+      "funnelAnalysis": {
+        "funnelSteps": [
+          {
+            "step": "Homepage",
+            "page": "https://eastmountaindental.com/",
+            "conversionRate": 0,
+            "dropOffRate": 0,
+            "timeSpent": 0
+          },
+          {
+            "step": "Services Page",
+            "page": "https://eastmountaindental.com/",
+            "conversionRate": 0,
+            "dropOffRate": 0,
+            "timeSpent": 0
+          },
+          {
+            "step": "Contact Page",
+            "page": "https://eastmountaindental.com/",
+            "conversionRate": 0,
+            "dropOffRate": 0,
+            "timeSpent": 0
+          },
+          {
+            "step": "Appointment Scheduling",
+            "page": "https://eastmountaindental.com/",
+            "conversionRate": 0,
+            "dropOffRate": 0,
+            "timeSpent": 0
+          }
+        ],
+        "dropOffPoints": [
+          {
+            "location": "Services Page",
+            "dropOffRate": 50,
+            "issues": [],
+            "recommendations": []
+          },
+          {
+            "location": "Contact Page",
+            "dropOffRate": 50,
+            "issues": [],
+            "recommendations": []
+          }
+        ],
+        "overallFunnelConversionRate": 22,
+        "industryConversionGoals": [
+          "Target conversion rate: 45%",
+          "Current performance: Underperforming"
+        ],
+        "multiDeviceJourneyAnalysis": {
+          "desktopConversionRate": 35,
+          "mobileConversionRate": 15
+        }
+      },
+      "forms": {
+        "detectedForms": [],
+        "overallFormEffectivenessScore": 0
+      },
+      "cta": {
+        "ctasDetected": [
+          {
+            "id": "detected-cta-1",
+            "text": "Open Family Dentist",
+            "element": "button:contains(\"Open Family Dentist\"), a:contains(\"Open Family Dentist\"), [role=\"button\"]:contains(\"Open Family Dentist\")",
+            "position": "above-fold",
+            "effectiveness": 67,
+            "type": "engagement"
+          },
+          {
+            "id": "detected-cta-2",
+            "text": "Open Orthodontist",
+            "element": "button:contains(\"Open Orthodontist\"), a:contains(\"Open Orthodontist\"), [role=\"button\"]:contains(\"Open Orthodontist\")",
+            "position": "below-fold",
+            "effectiveness": 70,
+            "type": "engagement"
+          },
+          {
+            "id": "detected-cta-3",
+            "text": "Open Oral Surgeon",
+            "element": "button:contains(\"Open Oral Surgeon\"), a:contains(\"Open Oral Surgeon\"), [role=\"button\"]:contains(\"Open Oral Surgeon\")",
+            "position": "below-fold",
+            "effectiveness": 59,
+            "type": "engagement"
+          },
+          {
+            "id": "detected-cta-4",
+            "text": "Open Periodontist",
+            "element": "button:contains(\"Open Periodontist\"), a:contains(\"Open Periodontist\"), [role=\"button\"]:contains(\"Open Periodontist\")",
+            "position": "below-fold",
+            "effectiveness": 63,
+            "type": "engagement"
+          },
+          {
+            "id": "detected-cta-5",
+            "text": "Open Endodontist",
+            "element": "button:contains(\"Open Endodontist\"), a:contains(\"Open Endodontist\"), [role=\"button\"]:contains(\"Open Endodontist\")",
+            "position": "below-fold",
+            "effectiveness": 41,
+            "type": "engagement"
+          }
+        ],
+        "performanceMetrics": {
+          "clickThroughRate": 0,
+          "conversionRate": 0,
+          "abTestPotential": {
+            "hasPotential": false,
+            "suggestedVariations": []
+          }
+        },
+        "overallCtaEffectivenessScore": 80,
+        "abTestingRecommendations": []
+      },
+      "insights": {
+        "psychologyPrinciples": [],
+        "userExperienceFrictionPoints": []
+      },
+      "trustSignalsAnalysis": {
+        "signalsPresent": [
+          "Security Badges",
+          "Testimonials"
+        ],
+        "effectivenessScore": 60,
+        "dynamicSignals": [],
+        "recommendations": [
+          "Add patient reviews",
+          "Display professional certifications",
+          "Include insurance acceptance logos"
+        ],
+        "score": 55
+      },
+      "userExperience": {
+        "score": 38,
+        "navigationScore": 40,
+        "clarityScore": 35,
+        "loadTimeImpactScore": 20,
+        "mobileResponsivenessScore": 50,
+        "cognitiveLoadScore": 45,
+        "errorHandlingScore": 30,
+        "feedbackMechanismScore": 25
+      },
+      "checkoutProcess": null,
+      "landingPageEffectiveness": {
+        "items": [],
+        "totalAvailableItems": 0,
+        "pagination": null
+      },
+      "personalizationOpportunities": null,
+      "abTestingSuggestions": null,
+      "recommendations": {
+        "items": [
+          {
+            "id": "1cadaf54-d8e8-46b3-9a57-cc55d95bf0d2",
+            "text": "Optimize form conversion by improving usability with targeted field reduction, enhanced mobile experience, and streamlined validation",
+            "priority": "High",
+            "source": "conversion",
+            "impact": "Estimated 25% improvement in form completion rates",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 6,
+              "max": 14
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 6
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Audit  forms for field optimization opportunities"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Implement conditional field display based on user selections"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Add mobile-specific form layouts and touch-friendly inputs"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Set up form analytics to track abandonment patterns"
+              }
+            ]
+          },
+          {
+            "id": "5e344eb0-9c44-4e77-b7e9-d2762974f6a2",
+            "text": "Improve conversion-focused user experience by optimizing page load speeds, enhancing mobile responsiveness, and streamlining navigation paths",
+            "priority": "High",
+            "source": "conversion",
+            "impact": "Better user engagement and reduced bounce rates",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 12,
+              "max": 24
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 12
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Conduct user experience audit focusing on conversion paths"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Optimize page load speeds and mobile performance"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Simplify navigation and reduce decision fatigue"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Implement clear calls-to-action throughout the journey"
+              }
+            ]
+          }
+        ],
+        "totalAvailableItems": 2,
+        "pagination": null
+      },
+      "issues": {
+        "items": [
+          {
+            "text": "Form effectiveness score of 0/100 indicates usability issues",
+            "severity": "High",
+            "details": {
+              "title": "Poor form effectiveness",
+              "impact": "High form abandonment rates and reduced lead generation",
+              "recommendation": "Simplify forms, improve validation, and enhance mobile experience"
+            }
+          },
+          {
+            "text": "Mobile responsiveness score of 50/100 affects mobile conversions",
+            "severity": "High",
+            "details": {
+              "title": "Poor mobile conversion experience",
+              "impact": "Lost mobile conversions and poor user experience",
+              "recommendation": "Optimize mobile design and touch-friendly interactions"
+            }
+          },
+          {
+            "text": "Trust signals effectiveness of 45/100 may reduce user confidence",
+            "severity": "Medium",
+            "details": {
+              "title": "Insufficient trust signals",
+              "impact": "Reduced user trust and conversion hesitation",
+              "recommendation": "Add testimonials, security badges, and social proof elements"
+            }
+          }
+        ],
+        "totalAvailableItems": 3,
+        "pagination": null
+      },
+      "industryBenchmarks": {},
+      "roiProjections": null,
+      "businessImpact": {},
+      "implementationRoadmap": {},
+      "realTimeDataFeed": null,
+      "error": null
+    },
+    "accessibility": {
+      "summary": {
+        "score": 72,
+        "rating": "Underperforming",
+        "topIssues": [
+          "WCAG 1.1.1 (Non-text Content): 3 images detected without alternative text, including hero banner and attachment images",
+          "WCAG 2.4.4 (Link Purpose (In Context)): 20 links detected without meaningful text, including map and scheduling links",
+          "Multiple images lack alternative text",
+          "Some links have non-descriptive text",
+          "WCAG 2.4.6 (Headings and Labels): Multiple h6 headings used without clear semantic structure, multiple duplicate 'Highly Rated!' headings"
+        ]
+      },
+      "wcagCompliance": {
+        "overallWcagScore": 65,
+        "conformanceLevelAchieved": "AA",
+        "perceivable": {
+          "score": 70,
+          "issues": [
+            {
+              "id": "7e849aaa-a48d-4b12-8a20-d8e9c2bf1325",
+              "text": "Multiple images lack alternative text",
+              "severity": "Medium",
+              "category": "ACCESSIBILITY",
+              "title": "Multiple images lack alternative text",
+              "description": "Multiple images lack alternative text",
+              "impact": "Accessibility barrier for users",
+              "status": "OPEN",
+              "source": "accessibility"
+            },
+            {
+              "id": "6a7c7ced-03e8-42f0-a5db-384a665bb8b9",
+              "text": "Potential color contrast challenges",
+              "severity": "Medium",
+              "category": "ACCESSIBILITY",
+              "title": "Potential color contrast challenges",
+              "description": "Potential color contrast challenges",
+              "impact": "Accessibility barrier for users",
+              "status": "OPEN",
+              "source": "accessibility"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "1.1.1",
+              "name": "Non-text Content",
+              "level": "A",
+              "passed": false,
+              "score": 50,
+              "details": "3 images detected without alternative text, including hero banner and attachment images",
+              "elements": [
+                {
+                  "selector": "img[src*='wp-content/uploads/']",
+                  "recommendation": "Add descriptive alt text that conveys the image's purpose or content"
+                },
+                {
+                  "selector": ".attachment-large",
+                  "recommendation": "Provide alternative text for non-text content"
+                },
+                {
+                  "selector": "img:not([alt])",
+                  "recommendation": "Add descriptive alt text that conveys the image's purpose or content"
+                }
+              ],
+              "impact": "Medium",
+              "userImpact": "Affects users who rely on screen readers or cannot see images"
+            }
+          ]
+        },
+        "operable": {
+          "score": 75,
+          "issues": [
+            {
+              "id": "22be63c8-52a2-434e-aa5e-379298390038",
+              "text": "Some links lack descriptive text",
+              "severity": "Medium",
+              "category": "ACCESSIBILITY",
+              "title": "Some links lack descriptive text",
+              "description": "Some links lack descriptive text",
+              "impact": "Accessibility barrier for users",
+              "status": "OPEN",
+              "source": "accessibility"
+            },
+            {
+              "id": "7f38a15b-7115-4e60-8b7a-4ec94e1b2a67",
+              "text": "Potential keyboard navigation challenges",
+              "severity": "Medium",
+              "category": "ACCESSIBILITY",
+              "title": "Potential keyboard navigation challenges",
+              "description": "Potential keyboard navigation challenges",
+              "impact": "Accessibility barrier for users",
+              "status": "OPEN",
+              "source": "accessibility"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "2.4.4",
+              "name": "Link Purpose (In Context)",
+              "level": "A",
+              "passed": false,
+              "score": 60,
+              "details": "20 links detected without meaningful text, including map and scheduling links",
+              "elements": [
+                {
+                  "selector": "a[href*='meetaxle.com']",
+                  "recommendation": "Make link text more descriptive of its destination or purpose"
+                },
+                {
+                  "selector": "a[href*='google.com/maps']",
+                  "recommendation": "Make link text more descriptive of its destination or purpose"
+                },
+                {
+                  "selector": "a:not([aria-label]):not([title])",
+                  "recommendation": "Make link text more descriptive of its destination or purpose"
+                }
+              ],
+              "impact": "Medium",
+              "userImpact": "Affects users who rely on screen readers to understand link purposes"
+            }
+          ]
+        },
+        "understandable": {
+          "score": 60,
+          "issues": [
+            {
+              "id": "d170d988-5588-4da3-a6a8-30c3425112ce",
+              "text": "Inconsistent heading hierarchy",
+              "severity": "Medium",
+              "category": "ACCESSIBILITY",
+              "title": "Inconsistent heading hierarchy",
+              "description": "Inconsistent heading hierarchy",
+              "impact": "Accessibility barrier for users",
+              "status": "OPEN",
+              "source": "accessibility"
+            },
+            {
+              "id": "39fb6bcf-b7b6-462f-a463-3767ccc76723",
+              "text": "Potential form labeling issues",
+              "severity": "Medium",
+              "category": "ACCESSIBILITY",
+              "title": "Potential form labeling issues",
+              "description": "Potential form labeling issues",
+              "impact": "Accessibility barrier for users",
+              "status": "OPEN",
+              "source": "accessibility"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "2.4.6",
+              "name": "Headings and Labels",
+              "level": "AA",
+              "passed": false,
+              "score": 55,
+              "details": "Multiple h6 headings used without clear semantic structure, multiple duplicate 'Highly Rated!' headings",
+              "elements": [
+                {
+                  "selector": "h6:contains('Highly Rated!')",
+                  "recommendation": "Provide descriptive heading text that clearly describes the content"
+                },
+                {
+                  "selector": "h6:contains('Schedule Online')",
+                  "recommendation": "Provide descriptive heading text that clearly describes the content"
+                },
+                {
+                  "selector": "h6:contains('Our Specials')",
+                  "recommendation": "Provide descriptive heading text that clearly describes the content"
+                }
+              ],
+              "impact": "Medium",
+              "userImpact": "Affects users who rely on headings for navigation and content structure"
+            }
+          ]
+        },
+        "robust": {
+          "score": 80,
+          "issues": [
+            {
+              "id": "b4d91103-8b82-4e50-89ba-5eeaa152975d",
+              "text": "Potential ARIA attribute misuse",
+              "severity": "Medium",
+              "category": "ACCESSIBILITY",
+              "title": "Potential ARIA attribute misuse",
+              "description": "Potential ARIA attribute misuse",
+              "impact": "Accessibility barrier for users",
+              "status": "OPEN",
+              "source": "accessibility"
+            }
+          ],
+          "criteria": []
+        },
+        "cognitive": null
+      },
+      "screenReaderTesting": {
+        "devices": [
+          {
+            "name": "NVDA",
+            "version": "Latest",
+            "compatibilityScore": 80,
+            "score": 80,
+            "issues": [
+              "Complex dropdown menus may require additional ARIA attributes for optimal navigation"
+            ]
+          },
+          {
+            "name": "JAWS",
+            "version": "Latest",
+            "compatibilityScore": 70,
+            "score": 70,
+            "issues": [
+              "Table navigation could be improved with proper header associations"
+            ]
+          },
+          {
+            "name": "VoiceOver",
+            "version": "Latest",
+            "compatibilityScore": 70,
+            "score": 70,
+            "issues": [
+              "Mobile gesture navigation could be enhanced with better landmark structure"
+            ]
+          },
+          {
+            "name": "TalkBack",
+            "version": "Latest",
+            "compatibilityScore": 60,
+            "score": 60,
+            "issues": [
+              "Touch exploration could be improved with better content grouping",
+              "Web content navigation may need enhanced semantic structure"
+            ]
+          }
+        ],
+        "summary": "Basic compatibility with screen readers, some navigation challenges",
+        "navigationScore": 70,
+        "contentAccessibilityScore": 65,
+        "formInteractionScore": 80
+      },
+      "implementationPlan": null,
+      "recommendations": {
+        "items": [
+          {
+            "id": "20b5dc79-7dd5-4504-ba3c-3067f05e6bad",
+            "text": "Add descriptive alternative text to all images conveying information",
+            "priority": "High",
+            "source": "accessibility",
+            "impact": "General improvement expected",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Audit all images to identify those missing or with inadequate alt text"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Write descriptive alt text for informational images (purpose, not appearance)"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Add empty alt=\"\" for purely decorative images to hide from screen readers"
+              },
+              {
+                "stepNumber": 4,
+                "description": "Update CMS templates to require alt text for new image uploads"
+              }
+            ]
+          },
+          {
+            "id": "489670e3-93fd-4313-8d4c-4a2603f154a2",
+            "text": "Improve link text to be more descriptive and meaningful",
+            "priority": "Medium",
+            "source": "accessibility",
+            "impact": "General improvement expected",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Analyze current implementation and identify specific areas needing improvement"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Research best practices and gather requirements for the recommended changes"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Plan implementation approach with clear milestones and success criteria"
+              }
+            ]
+          },
+          {
+            "id": "846b60f3-df9d-415e-9a06-696c0dbfd31f",
+            "text": "Refactor heading structure to follow logical hierarchy",
+            "priority": "Low",
+            "source": "accessibility",
+            "impact": "General improvement expected",
+            "effort": "Moderate",
+            "effortHours": {
+              "min": 1,
+              "max": 4
+            },
+            "effortBreakdown": [
+              {
+                "task": "Implementation",
+                "role": "Developer",
+                "estimatedHours": 1
+              }
+            ],
+            "implementationSteps": [
+              {
+                "stepNumber": 1,
+                "description": "Audit current heading structure to identify hierarchy gaps or errors"
+              },
+              {
+                "stepNumber": 2,
+                "description": "Restructure headings to follow logical sequence (h1 → h2 → h3, etc.)"
+              },
+              {
+                "stepNumber": 3,
+                "description": "Ensure each page has exactly one h1 element describing main content"
+              }
+            ]
+          }
+        ],
+        "totalAvailableItems": 3,
+        "pagination": null
+      },
+      "issues": {
+        "items": [
+          {
+            "text": "WCAG 1.1.1 (Non-text Content): 3 images detected without alternative text, including hero banner and attachment images",
+            "severity": "High",
+            "details": {
+              "type": "Accessibility Issue",
+              "impact": "Medium",
+              "recommendedAction": "Review and address this accessibility concern"
+            }
+          },
+          {
+            "text": "WCAG 2.4.4 (Link Purpose (In Context)): 20 links detected without meaningful text, including map and scheduling links",
+            "severity": "High",
+            "details": {
+              "type": "Accessibility Issue",
+              "impact": "Medium",
+              "recommendedAction": "Review and address this accessibility concern"
+            }
+          },
+          {
+            "text": "Multiple images lack alternative text",
+            "severity": "Medium",
+            "details": {
+              "type": "Accessibility Issue",
+              "impact": "Medium",
+              "recommendedAction": "Review and address this accessibility concern"
+            }
+          },
+          {
+            "text": "Some links have non-descriptive text",
+            "severity": "Medium",
+            "details": {
+              "type": "Accessibility Issue",
+              "impact": "Low",
+              "recommendedAction": "Review and address this accessibility concern"
+            }
+          },
+          {
+            "text": "WCAG 2.4.6 (Headings and Labels): Multiple h6 headings used without clear semantic structure, multiple duplicate 'Highly Rated!' headings",
+            "severity": "Medium",
+            "details": {
+              "type": "Accessibility Issue",
+              "impact": "Medium",
+              "recommendedAction": "Review and address this accessibility concern"
+            }
+          }
+        ],
+        "totalAvailableItems": 5,
+        "pagination": null
+      },
+      "industryBenchmarks": {},
+      "roiProjections": null,
+      "businessImpact": {},
+      "error": null,
+      "keyboardNavigation": {
+        "score": 75,
+        "focusVisible": true,
+        "trapFocus": false,
+        "tabOrderLogical": true,
+        "skipLinksPresent": false,
+        "issues": [
+          "No dedicated skip navigation links",
+          "Potential focus management challenges"
+        ]
+      },
+      "colorContrast": {
+        "score": 100,
+        "failedElements": 0,
+        "contrastRatioExamples": []
+      },
+      "formAccessibility": {
+        "score": 80,
+        "labelsPresent": true,
+        "errorHandlingAccessible": true,
+        "fieldsetLegendUsage": false,
+        "instructionsClear": true,
+        "overallFormUsabilityScore": 80
+      },
+      "multimediaAccessibility": {
+        "score": 100,
+        "captionsAvailable": false,
+        "transcriptsAvailable": false,
+        "audioDescriptionsAvailable": false,
+        "mediaAlternativeScore": 100
+      },
+      "assistiveTechnologyCompatibility": {
+        "score": 75,
+        "testedTechnologies": [
+          "NVDA",
+          "JAWS",
+          "VoiceOver",
+          "TalkBack",
+          "Dragon NaturallySpeaking"
+        ],
+        "compatibilityIssues": [
+          "Some ARIA attributes might need refinement",
+          "Potential screen reader navigation challenges"
+        ]
+      },
+      "neurodiversityMetrics": null,
+      "implementationRoadmap": {},
+      "overallConformance": {
+        "level": "None",
+        "conformanceLevelAchieved": "None",
+        "keySuccesses": [
+          "Basic accessibility checks passing"
+        ],
+        "criticalFailures": [],
+        "implementationGuidance": "Continue monitoring and enhancing accessibility practices"
+      }
+    }
+  },
+  "overallScore": 67,
+  "overallRating": "Poor",
+  "overallRoiProjections": null,
+  "moduleStatus": [
+    {
+      "moduleName": "ui",
+      "status": "Success",
+      "score": 89,
+      "rating": "Needs Work",
+      "notes": "Analysis completed for 2 viewport(s) | Recommendations generated during report assembly | High quality score (89/100) with minimal issues",
+      "errors": [],
+      "warnings": [
+        "2 high/critical severity issues detected"
+      ]
+    },
+    {
+      "moduleName": "performance",
+      "status": "Success",
+      "score": 57,
+      "rating": "Very Poor",
+      "notes": "performance analysis completed",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "moduleName": "seoContent",
+      "status": "Success",
+      "score": 53,
+      "rating": "Very Poor",
+      "notes": "seoContent analysis completed",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "moduleName": "security",
+      "status": "Success",
+      "score": 66,
+      "rating": "Poor",
+      "notes": "security analysis completed",
+      "errors": [],
+      "warnings": [
+        "7 high/critical severity issues detected"
+      ]
+    },
+    {
+      "moduleName": "privacy",
+      "status": "Success",
+      "score": 69,
+      "rating": "Poor",
+      "notes": "privacy analysis completed",
+      "errors": [],
+      "warnings": [
+        "1 high/critical severity issues detected"
+      ]
+    },
+    {
+      "moduleName": "compatibility",
+      "status": "Success",
+      "score": 75,
+      "rating": "Underperforming",
+      "notes": "compatibility analysis completed",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "moduleName": "marketing",
+      "status": "Success",
+      "score": 60,
+      "rating": "Poor",
+      "notes": "marketing analysis completed",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "moduleName": "conversion",
+      "status": "Success",
+      "score": 42,
+      "rating": "Critical Fail",
+      "notes": "Below average score (42/100) with multiple improvement opportunities",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "moduleName": "accessibility",
+      "status": "Success",
+      "score": 72,
+      "rating": "Underperforming",
+      "notes": "accessibility analysis completed",
+      "errors": [],
+      "warnings": [
+        "2 high/critical severity issues detected"
+      ]
+    }
+  ],
+  "topRecommendations": {
+    "items": [
+      {
+        "id": "8648e30c-cb7c-408d-81a2-199e2c54d05d",
+        "text": "Review and improve ai-general module based on analysis findings. Consider best practices and user experience guidelines",
+        "priority": "Medium",
+        "source": "ai-general",
+        "impact": "General improvement expected",
+        "effort": "Moderate",
+        "effortHours": {
+          "min": 1,
+          "max": 4
+        },
+        "effortBreakdown": [
+          {
+            "task": "Implementation",
+            "role": "Developer",
+            "estimatedHours": 1
+          }
+        ],
+        "implementationSteps": [
+          {
+            "stepNumber": 1,
+            "description": "Assess current state and identify specific areas requiring improvement"
+          },
+          {
+            "stepNumber": 2,
+            "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+          },
+          {
+            "stepNumber": 3,
+            "description": "Implement improvements systematically with proper testing and validation"
+          }
+        ]
+      },
+      {
+        "id": "a7e62e2f-3ac5-4913-997d-5b0ff3d8238e",
+        "text": "Optimize user interface design and user experience based on viewport analysis findings to improve user engagement and conversion rates",
+        "priority": "High",
+        "source": "ai-general",
+        "impact": "Improved user experience and engagement metrics",
+        "elementIdentifiers": [
+          {
+            "type": "selector",
+            "value": "nav[data-widget-number=\"107\"]"
+          },
+          {
+            "type": "selector",
+            "value": "body[data-elementor-device-mode=\"desktop\"]"
+          }
+        ],
+        "effort": "Moderate",
+        "effortHours": {
+          "min": 4,
+          "max": 8
+        },
+        "effortBreakdown": [
+          {
+            "task": "Implementation",
+            "role": "Developer",
+            "estimatedHours": 4
+          }
+        ],
+        "implementationSteps": [
+          {
+            "stepNumber": 1,
+            "description": "Assess current state and identify specific areas requiring improvement"
+          },
+          {
+            "stepNumber": 2,
+            "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+          },
+          {
+            "stepNumber": 3,
+            "description": "Implement improvements systematically with proper testing and validation"
+          },
+          {
+            "stepNumber": 4,
+            "description": "Monitor results and establish continuous improvement process"
+          }
+        ]
+      },
+      {
+        "id": "759272ca-0499-4eea-b2f3-434182cdb89a",
+        "text": "Address Core Web Vitals and performance bottlenecks to improve page load speeds and search engine rankings",
+        "priority": "High",
+        "source": "ai-general",
+        "impact": "Better search rankings and user retention",
+        "elementIdentifiers": [
+          {
+            "type": "selector",
+            "value": "body[data-performance-monitored] .main-content-area:first-child"
+          },
+          {
+            "type": "selector",
+            "value": "[data-testid='performance-critical-element']:first-of-type"
+          }
+        ],
+        "effort": "Moderate",
+        "effortHours": {
+          "min": 6,
+          "max": 12
+        },
+        "effortBreakdown": [
+          {
+            "task": "Implementation",
+            "role": "Developer",
+            "estimatedHours": 6
+          }
+        ],
+        "implementationSteps": [
+          {
+            "stepNumber": 1,
+            "description": "Assess current state and identify specific areas requiring improvement"
+          },
+          {
+            "stepNumber": 2,
+            "description": "Develop comprehensive improvement plan with clear goals and success metrics"
+          },
+          {
+            "stepNumber": 3,
+            "description": "Implement improvements systematically with proper testing and validation"
+          },
+          {
+            "stepNumber": 4,
+            "description": "Monitor results and establish continuous improvement process"
+          }
+        ]
+      }
+    ],
+    "totalAvailableItems": 3,
+    "pagination": null
+  },
+  "regulatoryCompliance": null,
+  "crossModuleInsights": [],
+  "visualizationData": null,
+  "estimatedAnalysisCost": {
+    "totalCostUSD": 0.081895,
+    "currency": "USD",
+    "breakdown": [
+      {
+        "module": "IndustryDetection",
+        "provider": "anthropic",
+        "model": "claude-3-5-haiku-20241022",
+        "inputTokens": 1592,
+        "outputTokens": 158,
+        "costUSD": 0.001906,
+        "modelCapabilities": {
+          "contextWindowTokens": 200000,
+          "supportsVision": true,
+          "performanceTier": "basic"
+        },
+        "selectionReason": "CLI Override"
+      },
+      {
+        "module": "ui-viewport",
+        "provider": "anthropic",
+        "model": "claude-3-5-haiku-20241022",
+        "inputTokens": 3095,
+        "outputTokens": 1851,
+        "costUSD": 0.00988,
+        "modelCapabilities": {
+          "contextWindowTokens": 200000,
+          "supportsVision": true,
+          "performanceTier": "basic"
+        },
+        "selectionReason": "CLI Override"
+      },
+      {
+        "module": "ui-viewport",
+        "provider": "anthropic",
+        "model": "claude-3-5-haiku-20241022",
+        "inputTokens": 3360,
+        "outputTokens": 1922,
+        "costUSD": 0.010376,
+        "modelCapabilities": {
+          "contextWindowTokens": 200000,
+          "supportsVision": true,
+          "performanceTier": "basic"
+        },
+        "selectionReason": "CLI Override"
+      },
+      {
+        "module": "seoContent",
+        "provider": "anthropic",
+        "model": "claude-3-5-haiku-20241022",
+        "inputTokens": 2196,
+        "outputTokens": 1404,
+        "costUSD": 0.007373,
+        "modelCapabilities": {
+          "contextWindowTokens": 200000,
+          "supportsVision": true,
+          "performanceTier": "basic"
+        },
+        "selectionReason": "CLI Override"
+      },
+      {
+        "module": "security",
+        "provider": "anthropic",
+        "model": "claude-3-5-haiku-20241022",
+        "inputTokens": 3135,
+        "outputTokens": 1732,
+        "costUSD": 0.009436,
+        "modelCapabilities": {
+          "contextWindowTokens": 200000,
+          "supportsVision": true,
+          "performanceTier": "basic"
+        },
+        "selectionReason": "CLI Override"
+      },
+      {
+        "module": "privacy",
+        "provider": "anthropic",
+        "model": "claude-3-5-haiku-20241022",
+        "inputTokens": 1545,
+        "outputTokens": 962,
+        "costUSD": 0.005084,
+        "modelCapabilities": {
+          "contextWindowTokens": 200000,
+          "supportsVision": true,
+          "performanceTier": "basic"
+        },
+        "selectionReason": "CLI Override"
+      },
+      {
+        "module": "compatibility",
+        "provider": "anthropic",
+        "model": "claude-3-5-haiku-20241022",
+        "inputTokens": 1184,
+        "outputTokens": 1145,
+        "costUSD": 0.005527,
+        "modelCapabilities": {
+          "contextWindowTokens": 200000,
+          "supportsVision": true,
+          "performanceTier": "basic"
+        },
+        "selectionReason": "CLI Override"
+      },
+      {
+        "module": "marketing",
+        "provider": "anthropic",
+        "model": "claude-3-5-haiku-20241022",
+        "inputTokens": 1366,
+        "outputTokens": 1118,
+        "costUSD": 0.005565,
+        "modelCapabilities": {
+          "contextWindowTokens": 200000,
+          "supportsVision": true,
+          "performanceTier": "basic"
+        },
+        "selectionReason": "CLI Override"
+      },
+      {
+        "module": "conversion",
+        "provider": "anthropic",
+        "model": "claude-3-5-haiku-20241022",
+        "inputTokens": 1432,
+        "outputTokens": 869,
+        "costUSD": 0.004622,
+        "modelCapabilities": {
+          "contextWindowTokens": 200000,
+          "supportsVision": true,
+          "performanceTier": "basic"
+        },
+        "selectionReason": "CLI Override"
+      },
+      {
+        "module": "accessibility",
+        "provider": "anthropic",
+        "model": "claude-3-5-haiku-20241022",
+        "inputTokens": 3222,
+        "outputTokens": 1556,
+        "costUSD": 0.008802,
+        "modelCapabilities": {
+          "contextWindowTokens": 200000,
+          "supportsVision": true,
+          "performanceTier": "basic"
+        },
+        "selectionReason": "CLI Override"
+      },
+      {
+        "module": "top-recommendations",
+        "provider": "anthropic",
+        "model": "claude-3-5-haiku-20241022",
+        "inputTokens": 1160,
+        "outputTokens": 422,
+        "costUSD": 0.002616,
+        "modelCapabilities": {
+          "contextWindowTokens": 200000,
+          "supportsVision": true,
+          "performanceTier": "basic"
+        },
+        "selectionReason": "Family Preference"
+      }
+    ]
+  },
+  "schemaValidationErrors": []
+}

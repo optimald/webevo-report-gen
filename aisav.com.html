@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Webevo.ai Comprehensive Scan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* Almost Black */
+            color: #F9FAFB; /* Almost White */
+        }
+        .report-card {
+            background-color: #111827; /* Dark Gray */
+            border: 1px solid #1F2937; /* Gray border */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.8s ease-out;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .rating-critical-fail { color: #EF4444; } /* Red */
+        .rating-disqualified { color: #EF4444; } /* Red */
+        .rating-poor { color: #F97316; } /* Orange */
+        .rating-very-poor { color: #F97316; } /* Orange */
+        .rating-underperforming { color: #F59E0B; } /* Amber */
+        .rating-almost-there { color: #EAB308; } /* Yellow */
+        .rating-needs-work { color: #EAB308; } /* Yellow */
+        .rating-good { color: #84CC16; } /* Lime */
+        .rating-perfect { color: #22C55E; } /* Green */
+
+        .border-critical-fail { border-color: #EF4444; }
+        .border-disqualified { border-color: #EF4444; }
+        .border-poor { border-color: #F97316; }
+        .border-very-poor { border-color: #F97316; }
+        .border-underperforming { border-color: #F59E0B; }
+        .border-almost-there { border-color: #EAB308; }
+        .border-needs-work { border-color: #EAB308; }
+        .border-good { border-color: #84CC16; }
+        .border-perfect { border-color: #22C55E; }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Header -->
+        <header class="mb-8 text-center">
+             <div class="flex items-center justify-center gap-4 mb-4">
+                <img src="https://www.webevo.ai/_next/image?url=%2Fwebevo-logo-nav-hd-large.png&w=128&q=75" alt="WebEvo.ai Logo" class="h-16 w-16">
+                <h1 class="text-5xl font-bold text-white tracking-tight">
+                    WebEvo<span class="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">.ai</span>
+                </h1>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-white">Comprehensive Scan</h2>
+            <p class="text-lg text-gray-400 mt-1" id="report-url"></p>
+        </header>
+
+        <!-- Main Score -->
+        <div class="mb-12 flex flex-col items-center">
+            <div class="relative w-64 h-64">
+                <svg class="w-full h-full" viewBox="0 0 120 120">
+                    <circle class="text-gray-800" stroke-width="8" stroke="currentColor" fill="transparent" r="56" cx="60" cy="60"/>
+                    <circle id="overall-progress-ring" class="progress-ring__circle" stroke-width="8" stroke-linecap="round" stroke="currentColor" fill="transparent" r="56" cx="60" cy="60"/>
+                </svg>
+                <div id="overall-score-container" class="absolute inset-0 flex flex-col items-center justify-center">
+                    <div class="flex items-baseline">
+                        <span id="overall-grade" class="text-6xl font-extrabold"></span>
+                        <span id="overall-score" class="text-3xl font-bold ml-2 opacity-70">0</span>
+                    </div>
+                    <span id="overall-rating" class="text-lg font-medium mt-1">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module Scores Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="modules-grid">
+            <!-- Module cards will be injected here by JavaScript -->
+        </div>
+
+        <!-- All Recommendations -->
+        <div>
+            <h2 class="text-2xl font-bold mb-4 text-center">Full Recommendation List</h2>
+            <div class="space-y-4" id="full-recommendations">
+                <!-- Static recommendation lists will be injected here -->
+            </div>
+        </div>
+        
+        <!-- Optimal.dev Plug -->
+        <div class="mt-12 border border-gray-700 rounded-xl p-8 text-center" style="background-color: #120B13;">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <img src="https://www.optimal.dev/_next/image?url=%2Foptimaldev_icon.png&w=64&q=75" alt="Optimal.dev Logo" class="h-12 w-12">
+                <img src="https://www.optimal.dev/_next/image?url=%2Fimages%2Foptimal-logo.svg&w=256&q=75" alt="Optimal.dev" class="h-8">
+            </div>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Need help with these changes? The team at Optimal.dev specializes in executing the recommendations from this report to enhance your website's performance, security, and user experience.</p>
+            <p class="mt-6 text-lg font-semibold text-blue-400">
+                Visit us at: <span class="text-white">https://optimal.dev</span>
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            <p>Report generated on <span id="generation-date"></span></p>
+        </footer>
+
+    </div>
+
+    <script>
+        // The full JSON data from the uploaded file
+        const reportData = {
+          "reportId": "123f9255-40df-4f02-b382-2a8504d386af",
+          "url": "https://aisav.com/",
+          "generatedAt": "2025-08-13T01:59:46.579Z",
+          "overallScore": 65,
+          "overallRating": "Poor",
+          "modules": {
+            "ui": { "summary": { "score": 90, "rating": "Almost There" }, "recommendations": { "items": [ { "text": "Optimize mobile responsive design by implementing a flexible grid system with consistent margin and padding using CSS Grid or Flexbox. Focus on creating a 12-column responsive grid with media queries that ensure consistent spacing and alignment across mobile and desktop breakpoints" }, { "text": "Enhance mobile and desktop accessibility by implementing comprehensive focus indicators and improving semantic HTML markup. Ensure all interactive elements have clear, high-contrast focus states that meet WCAG 2.1 AA standards" }, { "text": "Refine brand consistency and typography by establishing a comprehensive design system with precise font sizing, weight, and spacing rules. Create a modular type scale that adapts seamlessly across mobile and desktop viewports" } ] } },
+            "performance": { "summary": { "score": 56, "rating": "Very Poor" }, "recommendations": { "items": [ { "text": "Optimize image loading by implementing lazy loading and compressing images to reduce initial page load time. Use modern WebP format and responsive image techniques" }, { "text": "Minimize render-blocking JavaScript and CSS by deferring non-critical scripts and inlining critical CSS for faster initial page render" }, { "text": "Implement browser caching and enable compression (Gzip/Brotli) to reduce server response time and bandwidth consumption" } ] } },
+            "seoContent": { "summary": { "score": 48, "rating": "Critical Fail" }, "recommendations": { "items": [ { "text": "Enhance website content with technology-specific keywords and improve meta descriptions to boost SEO relevance for AI and technology services" }, { "text": "Improve website loading speed and mobile responsiveness to enhance user experience and search engine ranking" }, { "text": "Create comprehensive, authoritative content demonstrating technical expertise in AI technology solutions" } ] } },
+            "security": { "summary": { "score": 45, "rating": "Critical Fail" }, "recommendations": { "items": [ { "text": "Implement comprehensive CSP with strict source restrictions" }, { "text": "Implement HSTS with max-age of at least 31536000 seconds" }, { "text": "Add X-Frame-Options: DENY or SAMEORIGIN" } ] } },
+            "privacy": { "summary": { "score": 78, "rating": "Underperforming" }, "recommendations": { "items": [ { "text": "Improve privacy policy comprehensiveness and clarity to better address user rights, data retention, and third-party sharing practices" } ] } },
+            "compatibility": { "summary": { "score": 73, "rating": "Underperforming" }, "recommendations": { "items": [ { "text": "Review and improve based on analysis findings. Consider best practices and user experience guidelines" } ] } },
+            "marketing": { "summary": { "score": 48, "rating": "Critical Fail" }, "recommendations": { "items": [ { "text": "Optimize call-to-action elements by improving button design, using action-oriented language, and testing different placements to increase conversion rates" }, { "text": "Strengthen brand consistency by standardizing visual elements, messaging tone, and design patterns across all marketing touchpoints" } ] } },
+            "conversion": { "summary": { "score": 45, "rating": "Critical Fail" }, "recommendations": { "items": [ { "text": "Optimize Newsletter Subscription and Customer Inquiry forms by addressing poor mobile optimization, low completion rates, poor mobile optimization, low completion rates with targeted field reduction, enhanced mobile experience, and streamlined validation" }, { "text": "Improve conversion-focused user experience by optimizing page load speeds, enhancing mobile responsiveness, and streamlining navigation paths" } ] } },
+            "accessibility": { "summary": { "score": 74, "rating": "Underperforming" }, "recommendations": { "items": [ { "text": "Add descriptive alt text to images without alternative text" }, { "text": "Add explicit labels to form inputs" }, { "text": "Improve link text descriptiveness" } ] } }
+          },
+          "topRecommendations": { "items": [ { "text": "Review and improve ai-general module based on analysis findings. Consider best practices and user experience guidelines" }, { "text": "Optimize user interface design and user experience based on viewport analysis findings to improve user engagement and conversion rates" }, { "text": "Address Core Web Vitals and performance bottlenecks to improve page load speeds and search engine rankings" } ] }
+        };
+
+        const moduleIcons = {
+            ui: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0-4.4-3.6-8-8-8s-8 3.6-8 8c0 2 .8 3.8 2.2 5.2Z"/><path d="M7 17a5 5 0 0 0 10 0"/><path d="M12 22v-3"/><path d="M2 12h3"/><path d="M19 12h3"/></svg>',
+            performance: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 12-4-4-4 4"/><path d="m18 12v6a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-6"/><path d="m2 12 4 4 4-4"/><path d="m6 12V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"/></svg>',
+            seoContent: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+            security: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+            privacy: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>',
+            compatibility: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>',
+            marketing: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>',
+            conversion: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10l-4-4"/><path d="m16 6-4 4"/><path d="M20.4 13.4A9 9 0 1 1 10.6 4.6"/></svg>',
+            accessibility: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>',
+            overall: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-blue-400"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>'
+        };
+
+        const moduleDescriptions = {
+            ui: 'Analyzes the visual design, layout, and branding. A strong UI creates a professional, trustworthy impression.',
+            performance: 'Measures website speed and responsiveness. Faster sites provide a better user experience and rank higher in search results.',
+            seoContent: 'Evaluates how well the site is optimized for search engines. Good SEO helps potential customers find your website.',
+            security: 'Checks for vulnerabilities and proper security configurations. Strong security protects your business and your customers.',
+            privacy: 'Assesses data handling practices and privacy policies. Proper privacy is crucial for legal compliance and building user trust.',
+            compatibility: 'Tests how the website functions across different browsers and devices. Broad compatibility ensures a consistent experience for all visitors.',
+            marketing: 'Reviews online marketing elements like social media and calls-to-action. Effective marketing turns visitors into customers.',
+            conversion: 'Analyzes how effectively the site encourages visitors to take action. A high conversion rate means the website is successful at generating business.',
+            accessibility: 'Checks if the website is usable by people with disabilities. Accessibility is often a legal requirement and expands your potential audience.'
+        };
+
+        function getRatingClass(rating) {
+            return 'rating-' + rating.toLowerCase().replace(/ /g, '-');
+        }
+        
+        function getGrade(score) {
+            if (score >= 97) return 'A+';
+            if (score >= 93) return 'A';
+            if (score >= 90) return 'A-';
+            if (score >= 87) return 'B+';
+            if (score >= 83) return 'B';
+            if (score >= 80) return 'B-';
+            if (score >= 77) return 'C+';
+            if (score >= 73) return 'C';
+            if (score >= 70) return 'C-';
+            if (score >= 67) return 'D+';
+            if (score >= 63) return 'D';
+            if (score >= 60) return 'D-';
+            return 'F';
+        }
+
+        function setProgress(circle, percent) {
+            const radius = circle.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            const offset = circumference - percent / 100 * circumference;
+            setTimeout(() => { circle.style.strokeDashoffset = offset; }, 100);
+        }
+
+        function createRecommendationSection(title, key, recommendations) {
+            if (!recommendations || recommendations.length === 0) return '';
+            
+            const recList = recommendations.map(rec => 
+                `<li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    <span class="text-gray-300">${rec.text}</span>
+                </li>`
+            ).join('');
+
+            return `
+                <div class="report-card rounded-xl p-6">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center text-white">
+                       <span class="mr-3">${moduleIcons[key] || ''}</span>
+                       ${title}
+                    </h3>
+                    <ul class="space-y-2">${recList}</ul>
+                </div>
+            `;
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('report-url').textContent = reportData.url;
+            const genDate = new Date(reportData.generatedAt);
+            document.getElementById('generation-date').textContent = genDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            const overallScore = reportData.overallScore;
+            const overallRating = reportData.overallRating;
+            const ratingClass = getRatingClass(overallRating);
+            
+            document.getElementById('overall-score').textContent = overallScore;
+            document.getElementById('overall-grade').textContent = getGrade(overallScore);
+            document.getElementById('overall-rating').textContent = overallRating;
+            
+            const overallScoreContainer = document.getElementById('overall-score-container');
+            overallScoreContainer.classList.add(ratingClass);
+
+            const overallProgressRing = document.getElementById('overall-progress-ring');
+            overallProgressRing.classList.add(ratingClass);
+            setProgress(overallProgressRing, overallScore);
+
+            const modulesGrid = document.getElementById('modules-grid');
+            for (const moduleKey in reportData.modules) {
+                const module = reportData.modules[moduleKey];
+                if(module.summary) {
+                    const score = module.summary.score;
+                    const rating = module.summary.rating;
+                    const grade = getGrade(score);
+                    const moduleRatingClass = getRatingClass(rating);
+                    const moduleBorderClass = 'border-' + rating.toLowerCase().replace(/ /g, '-');
+
+                    const card = document.createElement('div');
+                    card.className = `report-card rounded-xl p-5 flex flex-col justify-between`;
+                    
+                    card.innerHTML = `
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-gray-900 ${moduleRatingClass}">
+                                        ${moduleIcons[moduleKey] || ''}
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-lg font-semibold capitalize text-white">${moduleKey.replace(/([A-Z])/g, ' $1')}</p>
+                                        <p class="text-sm ${moduleRatingClass}">${rating}</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-3xl font-bold ${moduleRatingClass}">${grade}</div>
+                                    <div class="text-lg font-semibold ${moduleRatingClass} opacity-70">${score}</div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-400 mt-3 pt-3 border-t border-gray-700">${moduleDescriptions[moduleKey] || ''}</p>
+                        </div>
+                    `;
+                    modulesGrid.appendChild(card);
+                }
+            }
+
+            const recommendationsContainer = document.getElementById('full-recommendations');
+            
+            // Add Overall Recommendations First
+            recommendationsContainer.innerHTML += createRecommendationSection('Overall Top Recommendations', 'overall', reportData.topRecommendations.items);
+
+            // Add Module-Specific Recommendations
+            for (const moduleKey in reportData.modules) {
+                const module = reportData.modules[moduleKey];
+                if (module.recommendations && module.recommendations.items) {
+                    const title = moduleKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                    recommendationsContainer.innerHTML += createRecommendationSection(`${title} Recommendations`, moduleKey, module.recommendations.items);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
