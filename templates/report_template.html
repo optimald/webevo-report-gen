@@ -3,151 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Webevo.ai Comprehensive Scan - {{ domain }}</title>
+    <title>The Webevo.ai Comprehensive Scan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #030712; /* Almost Black */
-            color: #F9FAFB; /* Almost White */
+            background-color: #030712;
+            color: #F9FAFB;
         }
-        .report-card {
-            background-color: #111827; /* Dark Gray */
-            border: 1px solid #1F2937; /* Gray border */
+        .opportunity-card {
+            background-color: #111827;
+            border: 1px solid #1F2937;
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-        .report-card:hover {
+        .opportunity-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
         }
-        .progress-ring__circle {
-            transition: stroke-dashoffset 0.8s ease-out;
-            transform: rotate(-90deg);
-            transform-origin: 50% 50%;
+        .module-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-        .rating-critical-fail { color: #EF4444; } /* Red */
-        .rating-disqualified { color: #EF4444; } /* Red */
-        .rating-poor { color: #F97316; } /* Orange */
-        .rating-very-poor { color: #F97316; } /* Orange */
-        .rating-underperforming { color: #F59E0B; } /* Amber */
-        .rating-almost-there { color: #EAB308; } /* Yellow */
-        .rating-needs-work { color: #EAB308; } /* Yellow */
-        .rating-good { color: #84CC16; } /* Lime */
-        .rating-perfect { color: #22C55E; } /* Green */
-
-        .border-critical-fail { border-color: #EF4444; }
-        .border-disqualified { border-color: #EF4444; }
-        .border-poor { border-color: #F97316; }
-        .border-very-poor { border-color: #F97316; }
-        .border-underperforming { border-color: #F59E0B; }
-        .border-almost-there { border-color: #EAB308; }
-        .border-needs-work { border-color: #EAB308; }
-        .border-good { border-color: #84CC16; }
-        .border-perfect { border-color: #22C55E; }
+        .warning-item {
+            background-color: rgba(239, 68, 68, 0.05);
+            border-left: 4px solid #EF4444;
+        }
     </style>
 </head>
 <body class="p-4 sm:p-6 md:p-8">
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-4xl mx-auto">
 
         <!-- Header -->
-        <header class="mb-8 text-center">
+        <header class="mb-12 text-center">
              <div class="flex items-center justify-center gap-4 mb-4">
                 <img src="https://www.webevo.ai/_next/image?url=%2Fwebevo-logo-nav-hd-large.png&w=128&q=75" alt="WebEvo.ai Logo" class="h-16 w-16">
                 <h1 class="text-5xl font-bold text-white tracking-tight">
                     WebEvo<span class="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">.ai</span>
                 </h1>
             </div>
-            <h2 class="text-2xl md:text-3xl font-bold text-white">Comprehensive Scan</h2>
-            <p class="text-lg text-gray-400 mt-1">{{ url }}</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-6">Your Website Improvement Opportunities</h2>
+            <p class="text-lg text-gray-400 mt-2 max-w-3xl mx-auto">We've identified high-impact changes that can increase leads, improve speed, and boost visibility — often within days.</p>
+            <p class="text-md text-gray-500 mt-4">{{ url }}</p>
         </header>
 
-        <!-- Main Score -->
-        <div class="mb-12 flex flex-col items-center">
-            <div class="relative w-64 h-64">
-                <svg class="w-full h-full" viewBox="0 0 120 120">
-                    <circle class="text-gray-800" stroke-width="8" stroke="currentColor" fill="transparent" r="56" cx="60" cy="60"/>
-                    <circle id="overall-progress-ring" class="progress-ring__circle rating-{{ overallRating.lower().replace(' ', '-') }}" stroke-width="8" stroke-linecap="round" stroke="currentColor" fill="transparent" r="56" cx="60" cy="60"/>
-                </svg>
-                <div id="overall-score-container" class="absolute inset-0 flex flex-col items-center justify-center rating-{{ overallRating.lower().replace(' ', '-') }}">
-                    <div class="flex items-baseline">
-                        <span id="overall-grade" class="text-6xl font-extrabold">{{ getGrade(overallScore) }}</span>
-                        <span id="overall-score" class="text-3xl font-bold ml-2 opacity-70">{{ overallScore }}</span>
-                    </div>
-                    <span id="overall-rating" class="text-lg font-medium mt-1">{{ overallRating }}</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Module Scores Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="modules-grid">
-            {% for moduleKey, module in modules.items() %}
-            {% if module.summary %}
-            <div class="report-card rounded-xl p-5 flex flex-col justify-between">
-                <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-gray-900 rating-{{ module.summary.rating.lower().replace(' ', '-') }}">
-                                {{ getModuleIcon(moduleKey) | safe }}
+        <!-- Actionable Opportunities Section -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold mb-6 text-center">Actionable Opportunities</h3>
+            <div class="space-y-6" id="opportunities-list">
+                {% for module_key, module in modules.items() %}
+                    {% if module.recommendations and module.recommendations.recommendations_list %}
+                        {% for rec in module.recommendations.recommendations_list %}
+                            <div class="opportunity-card rounded-lg p-6 flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-gray-800">
+                                    {% if module_key == 'ui' %}
+                                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                                    {% elif module_key == 'performance' %}
+                                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="m22 12-4-4-4 4"/><path d="m18 12v6a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-6"/><path d="m2 12 4 4 4-4"/><path d="m6 12V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"/></svg>
+                                    {% elif module_key == 'seoContent' %}
+                                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                    {% elif module_key == 'security' %}
+                                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                    {% elif module_key == 'privacy' %}
+                                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    {% elif module_key == 'compatibility' %}
+                                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                                    {% elif module_key == 'marketing' %}
+                                        <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                                    {% elif module_key == 'conversion' %}
+                                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 2v10l-4-4"/><path d="m16 6-4 4"/><path d="M20.4 13.4A9 9 0 1 1 10.6 4.6"/></svg>
+                                    {% elif module_key == 'accessibility' %}
+                                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                                    {% else %}
+                                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+                                    {% endif %}
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-2">
+                                        <span class="module-tag 
+                                            {% if module_key == 'ui' %}bg-green-500/10 text-green-400
+                                            {% elif module_key == 'performance' %}bg-blue-500/10 text-blue-400
+                                            {% elif module_key == 'seoContent' %}bg-green-500/10 text-green-400
+                                            {% elif module_key == 'security' %}bg-purple-500/10 text-purple-400
+                                            {% elif module_key == 'privacy' %}bg-purple-500/10 text-purple-400
+                                            {% elif module_key == 'compatibility' %}bg-blue-500/10 text-blue-400
+                                            {% elif module_key == 'marketing' %}bg-yellow-500/10 text-yellow-400
+                                            {% elif module_key == 'conversion' %}bg-green-500/10 text-green-400
+                                            {% elif module_key == 'accessibility' %}bg-blue-500/10 text-blue-400
+                                            {% else %}bg-gray-500/10 text-gray-400{% endif %}">
+                                            {% if module_key == 'ui' %}User Interface
+                                            {% elif module_key == 'performance' %}Performance
+                                            {% elif module_key == 'seoContent' %}SEO & Content
+                                            {% elif module_key == 'security' %}Security
+                                            {% elif module_key == 'privacy' %}Privacy
+                                            {% elif module_key == 'compatibility' %}Compatibility
+                                            {% elif module_key == 'marketing' %}Marketing
+                                            {% elif module_key == 'conversion' %}Conversion
+                                            {% elif module_key == 'accessibility' %}Accessibility
+                                            {% else %}{{ module_key|title }}{% endif %}
+                                        </span>
+                                    </div>
+                                    <p class="text-gray-300">{{ rec.text }}</p>
+                                </div>
                             </div>
-                            <div class="ml-4">
-                                <p class="text-lg font-semibold capitalize text-white">{{ moduleKey.replace(/([A-Z])/g, ' $1') }}</p>
-                                <p class="text-sm rating-{{ module.summary.rating.lower().replace(' ', '-') }}">{{ module.summary.rating }}</p>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-3xl font-bold rating-{{ module.summary.rating.lower().replace(' ', '-') }}">{{ getGrade(module.summary.score) }}</div>
-                            <div class="text-lg font-semibold rating-{{ module.summary.rating.lower().replace(' ', '-') }} opacity-70">{{ module.summary.score }}</div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-400 mt-3 pt-3 border-t border-gray-700">{{ getModuleDescription(moduleKey) }}</p>
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-        </div>
-
-        <!-- All Recommendations -->
-        <div>
-            <h2 class="text-2xl font-bold mb-4 text-center">Full Recommendation List</h2>
-            <div class="space-y-4" id="full-recommendations">
-                {% if topRecommendations and topRecommendations.items %}
-                <div class="report-card rounded-xl p-6">
-                    <h3 class="text-xl font-semibold mb-4 flex items-center text-white">
-                       <span class="mr-3">{{ getModuleIcon('overall') | safe }}</span>
-                       Overall Top Recommendations
-                    </h3>
-                    <ul class="space-y-2">
-                        {% for rec in topRecommendations.items %}
-                        <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                            <span class="text-gray-300">{{ rec.text }}</span>
-                        </li>
                         {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-
-                {% for moduleKey, module in modules.items() %}
-                {% if module.recommendations and module.recommendations.items %}
-                <div class="report-card rounded-xl p-6">
-                    <h3 class="text-xl font-semibold mb-4 flex items-center text-white">
-                       <span class="mr-3">{{ getModuleIcon(moduleKey) | safe }}</span>
-                       {{ moduleKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()) }} Recommendations
-                    </h3>
-                    <ul class="space-y-2">
-                        {% for rec in module.recommendations.items %}
-                        <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                            <span class="text-gray-300">{{ rec.text }}</span>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
+                    {% endif %}
                 {% endfor %}
             </div>
-        </div>
+        </section>
+
+        <!-- Warnings Section -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold mb-6 text-center">Warnings</h3>
+            <div class="space-y-3" id="warnings-list">
+                {% for module_key, module in modules.items() %}
+                    {% if module.issues and module.issues.issues_list %}
+                        {% for issue in module.issues.issues_list %}
+                            <div class="warning-item p-4 rounded-md">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <svg class="flex-shrink-0 w-5 h-5 text-red-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                        </svg>
+                                        <p class="text-gray-300">{{ issue.text }}</p>
+                                    </div>
+                                    <span class="module-tag 
+                                        {% if module_key == 'ui' %}bg-green-500/10 text-green-400
+                                        {% elif module_key == 'performance' %}bg-blue-500/10 text-blue-400
+                                        {% elif module_key == 'seoContent' %}bg-green-500/10 text-green-400
+                                        {% elif module_key == 'security' %}bg-purple-500/10 text-purple-400
+                                        {% elif module_key == 'privacy' %}bg-purple-500/10 text-purple-400
+                                        {% elif module_key == 'compatibility' %}bg-blue-500/10 text-blue-400
+                                        {% elif module_key == 'marketing' %}bg-yellow-500/10 text-yellow-400
+                                        {% elif module_key == 'conversion' %}bg-green-500/10 text-green-400
+                                        {% elif module_key == 'accessibility' %}bg-blue-500/10 text-blue-400
+                                        {% else %}bg-gray-500/10 text-gray-400{% endif %}">
+                                        {{ module_key|title }}
+                                    </span>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
         
         <!-- Optimal.dev Plug -->
         <div class="mt-12 border border-gray-700 rounded-xl p-8 text-center" style="background-color: #120B13;">
@@ -160,6 +166,60 @@
                 Visit us at: <span class="text-white">https://optimal.dev</span>
             </p>
         </div>
+        
+        <!-- Technical Benchmark Reference -->
+        <section class="mt-12">
+            <h3 class="text-xl font-bold mb-4 text-center text-gray-400">Technical Benchmark Reference</h3>
+            <div class="bg-gray-900/50 border border-gray-700 rounded-lg p-6 text-gray-400 text-sm">
+                <p class="text-center mb-4">The following benchmarks are for technical reference. Our primary focus is on the opportunities listed above.</p>
+                <div class="mb-4 p-4 rounded-lg bg-gray-800 border border-gray-700">
+                    <div class="flex justify-between items-center text-lg">
+                        <span class="font-bold text-white">Overall Benchmark</span>
+                        <span class="font-bold text-white">
+                            {% if overallScore >= 97 %}A+
+                            {% elif overallScore >= 93 %}A
+                            {% elif overallScore >= 90 %}A-
+                            {% elif overallScore >= 87 %}B+
+                            {% elif overallScore >= 83 %}B
+                            {% elif overallScore >= 80 %}B-
+                            {% elif overallScore >= 77 %}C+
+                            {% elif overallScore >= 73 %}C
+                            {% elif overallScore >= 70 %}C-
+                            {% elif overallScore >= 67 %}D+
+                            {% elif overallScore >= 63 %}D
+                            {% elif overallScore >= 60 %}D-
+                            {% else %}F{% endif %}
+                            ({{ overallScore }})
+                        </span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    {% for module_key, module in modules.items() %}
+                        {% if module.summary and module.summary.score %}
+                            <div class="flex justify-between items-baseline">
+                                <span class="capitalize">{{ module_key|replace('_', ' ') }}</span>
+                                <span class="font-semibold">
+                                    {% if module.summary.score >= 97 %}A+
+                                    {% elif module.summary.score >= 93 %}A
+                                    {% elif module.summary.score >= 90 %}A-
+                                    {% elif module.summary.score >= 87 %}B+
+                                    {% elif module.summary.score >= 83 %}B
+                                    {% elif module.summary.score >= 80 %}B-
+                                    {% elif module.summary.score >= 77 %}C+
+                                    {% elif module.summary.score >= 73 %}C
+                                    {% elif module.summary.score >= 70 %}C-
+                                    {% elif module.summary.score >= 67 %}D+
+                                    {% elif module.summary.score >= 63 %}D
+                                    {% elif module.summary.score >= 60 %}D-
+                                    {% else %}F{% endif %}
+                                    ({{ module.summary.score }})
+                                </span>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
 
         <!-- Footer -->
         <footer class="mt-12 text-center text-gray-500 text-sm">
@@ -167,40 +227,5 @@
         </footer>
 
     </div>
-
-    <script>
-        // Helper functions for the template
-        function getGrade(score) {
-            if (score >= 97) return 'A+';
-            if (score >= 93) return 'A';
-            if (score >= 90) return 'A-';
-            if (score >= 87) return 'B+';
-            if (score >= 83) return 'B';
-            if (score >= 80) return 'B-';
-            if (score >= 77) return 'C+';
-            if (score >= 73) return 'C';
-            if (score >= 70) return 'C-';
-            if (score >= 67) return 'D+';
-            if (score >= 63) return 'D';
-            if (score >= 60) return 'D-';
-            return 'F';
-        }
-
-        function setProgress(circle, percent) {
-            const radius = circle.r.baseVal.value;
-            const circumference = radius * 2 * Math.PI;
-            circle.style.strokeDasharray = `${circumference} ${circumference}`;
-            const offset = circumference - percent / 100 * circumference;
-            setTimeout(() => { circle.style.strokeDashoffset = offset; }, 100);
-        }
-
-        // Set progress for overall score
-        document.addEventListener('DOMContentLoaded', function() {
-            const overallProgressRing = document.getElementById('overall-progress-ring');
-            if (overallProgressRing) {
-                setProgress(overallProgressRing, {{ overallScore }});
-            }
-        });
-    </script>
 </body>
 </html>
