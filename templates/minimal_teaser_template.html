@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Webevo.ai Comprehensive Scan - {{ domain }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* Almost Black */
+            color: #F9FAFB; /* Almost White */
+        }
+        .report-card {
+            background-color: #111827; /* Dark Gray */
+            border: 1px solid #1F2937; /* Gray border */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.8s ease-out;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .rating-critical-fail { color: #EF4444; } /* Red */
+        .rating-disqualified { color: #EF4444; } /* Red */
+        .rating-poor { color: #F97316; } /* Orange */
+        .rating-very-poor { color: #F97316; } /* Orange */
+        .rating-underperforming { color: #F59E0B; } /* Amber */
+        .rating-almost-there { color: #EAB308; } /* Yellow */
+        .rating-needs-work { color: #EAB308; } /* Yellow */
+        .rating-good { color: #84CC16; } /* Lime */
+        .rating-perfect { color: #22C55E; } /* Green */
+
+        .border-critical-fail { border-color: #EF4444; }
+        .border-disqualified { border-color: #EF4444; }
+        .border-poor { border-color: #F97316; }
+        .border-very-poor { border-color: #F97316; }
+        .border-underperforming { border-color: #F59E0B; }
+        .border-almost-there { border-color: #EAB308; }
+        .border-needs-work { border-color: #EAB308; }
+        .border-good { border-color: #84CC16; }
+        .border-perfect { border-color: #22C55E; }
+        
+        .blurred-content {
+            filter: blur(4px);
+            user-select: none;
+            pointer-events: none;
+        }
+        .blurred-score {
+            filter: blur(3px);
+            user-select: none;
+        }
+        .teaser-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+        }
+        .teaser-text {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .overall-score-blurred {
+            filter: blur(4px);
+            user-select: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Header -->
+        <header class="mb-8 text-center">
+             <div class="flex items-center justify-center gap-4 mb-4">
+                <img src="https://www.webevo.ai/_next/image?url=%2Fwebevo-logo-nav-hd-large.png&w=128&q=75"
+alt="WebEvo.ai Logo" class="h-16 w-16">
+
+                <h1 class="text-5xl font-bold text-white tracking-tight">
+                    WebEvo<span class="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">.ai</span>
+                </h1>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-white">Comprehensive Scan</h2>
+            <p class="text-lg text-gray-400 mt-1">{{ url }}</p>
+        </header>
+
+        <!-- Main Score -->
+        <div class="mb-12 flex flex-col items-center relative">
+            <div class="relative w-64 h-64">
+                <svg class="w-full h-full" viewBox="0 0 120 120">
+                    <circle class="text-gray-800" stroke-width="8" stroke="currentColor" fill="transparent"
+r="56" cx="60" cy="60"/>
+
+                    <circle id="overall-progress-ring" class="progress-ring__circle text-gray-600" stroke-width="8" stroke-linecap="round" stroke="currentColor" fill="transparent" r="56" cx="60" cy="60"/>
+
+                </svg>
+                <div id="overall-score-container" class="absolute inset-0 flex flex-col items-center justify-center text-gray-600 overall-score-blurred">
+
+                    <div class="flex items-baseline">
+                        <span id="overall-grade" class="text-6xl font-extrabold">{{ overallGrade }}</span>
+
+                        <span id="overall-score" class="text-3xl font-bold ml-2 opacity-70">{{ overallScore }}</span>
+
+                    </div>
+                    <span id="overall-rating" class="text-lg font-medium mt-1">{{ overallRating }}</span>
+                </div>
+            </div>
+            <div class="teaser-overlay">
+                <div class="teaser-text">Upgrade to Full Report</div>
+            </div>
+        </div>
+
+        <!-- Module Scores Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="modules-grid">
+            {% set all_modules = ['ui', 'accessibility', 'conversion', 'performance', 'seocontent', 'security', 'privacy', 'compatibility', 'marketing'] %}
+            {% for moduleKey in all_modules %}
+            <div class="report-card rounded-xl p-5 flex flex-col justify-between relative">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-gray-900 text-gray-400">
+
+                                {{ moduleIcons[moduleKey] | safe }}
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-lg font-semibold capitalize text-white">{{ moduleKey.title() }}</p>
+
+                                {% if moduleKey in ['ui', 'accessibility', 'conversion'] and modules[moduleKey] and modules[moduleKey].summary %}
+                                    <p class="text-sm rating-{{ modules[moduleKey].summary.rating.lower().replace(' ', '-') }}">{{ modules[moduleKey].summary.rating }}</p>
+                                {% else %}
+                                    <p class="text-sm text-gray-400 blurred-content">Needs Work</p>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            {% if moduleKey in ['ui', 'accessibility', 'conversion'] and modules[moduleKey] and modules[moduleKey].summary %}
+                                <!-- Full scores for core modules -->
+                                <div class="text-3xl font-bold rating-{{ modules[moduleKey].summary.rating.lower().replace(' ', '-') }}">{{ moduleGrade[moduleKey] }}</div>
+
+                                <div class="text-lg font-semibold rating-{{ modules[moduleKey].summary.rating.lower().replace(' ', '-') }} opacity-70">{{ modules[moduleKey].summary.score }}</div>
+
+                            {% else %}
+                                <!-- Blurred scores for additional modules or missing modules -->
+                                <div class="text-3xl font-bold text-gray-400 blurred-score">{{ moduleGrade[moduleKey] if moduleGrade[moduleKey] else 'C' }}</div>
+
+                                <div class="text-lg font-semibold text-gray-400 opacity-70 blurred-score">{{ modules[moduleKey].summary.score if modules[moduleKey] and modules[moduleKey].summary else '75' }}</div>
+
+                            {% endif %}
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-3 pt-3 border-t border-gray-700">{{ moduleDescriptions[moduleKey] if moduleDescriptions[moduleKey] else 'Module analysis and recommendations.' }}</p>
+
+                </div>
+                {% if moduleKey not in ['ui', 'accessibility', 'conversion'] %}
+                <div class="teaser-overlay">
+                    <div class="teaser-text">Upgrade to Full Report</div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- All Recommendations -->
+        <div>
+            <h2 class="text-2xl font-bold mb-4 text-center">Full Recommendation List</h2>
+            <div class="space-y-4" id="full-recommendations">
+                {% if topRecommendations and topRecommendations.recommendations_list %}
+                <div class="report-card rounded-xl p-6 relative">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center text-white">
+                       <span class="mr-3">{{ moduleIcons['overall'] | safe }}</span>
+                       Overall Top Recommendations
+                    </h3>
+                    <div class="blurred-content">
+                        <ul class="space-y-2">
+                            {% for rec in topRecommendations.recommendations_list %}
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+
+                                <span class="text-gray-300">{{ rec.text }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="teaser-overlay">
+                        <div class="teaser-text">Upgrade to Full Report</div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% for moduleKey, module in modules.items() %}
+                {% if module.recommendations and module.recommendations.recommendations_list %}
+                <div class="report-card rounded-xl p-6 relative">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center text-white">
+                       <span class="mr-3">{{ moduleIcons[moduleKey] | safe }}</span>
+                       {{ moduleKey.title() }} Recommendations
+
+                    </h3>
+                    <!-- All recommendations are blurred for teaser -->
+                    <div class="blurred-content">
+                        <ul class="space-y-2">
+                            {% for rec in module.recommendations.recommendations_list %}
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+
+                                <span class="text-gray-300">{{ rec.text }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="teaser-overlay">
+                        <div class="teaser-text">Upgrade to Full Report</div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+                <!-- Additional 6 module recommendation sections with mock data -->
+                {% set additional_modules = ['performance', 'seocontent', 'security', 'privacy', 'compatibility', 'marketing'] %}
+                {% for moduleKey in additional_modules %}
+                {% if moduleKey not in modules %}
+                <div class="report-card rounded-xl p-6 relative">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center text-white">
+                       <span class="mr-3">{{ moduleIcons[moduleKey] | safe }}</span>
+                       {{ moduleKey.title() }} Recommendations
+                    </h3>
+                    <div class="blurred-content">
+                        <ul class="space-y-2">
+                            <!-- Mock recommendations for each additional module -->
+                            {% if moduleKey == 'performance' %}
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Optimize image compression and implement lazy loading for better page load times</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Minimize render-blocking resources and optimize critical rendering path</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Implement browser caching and leverage CDN for static assets</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Reduce server response time and optimize database queries</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Enable GZIP compression and optimize CSS/JavaScript delivery</span>
+                            </li>
+                            {% elif moduleKey == 'seocontent' %}
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Optimize meta titles and descriptions for better search engine visibility</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Implement structured data markup for rich search results</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Create high-quality, keyword-optimized content that provides value to users</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Improve internal linking structure and site architecture</span>
+                            </li>
+                            {% elif moduleKey == 'security' %}
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Implement HTTPS encryption and secure all data transmissions</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Add security headers including CSP, X-Frame-Options, and HSTS</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Regularly update software and dependencies to patch vulnerabilities</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Implement input validation and sanitization to prevent injection attacks</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Enable rate limiting and implement CAPTCHA for form submissions</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Set up security monitoring and intrusion detection systems</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Implement proper authentication and authorization mechanisms</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Regularly backup data and test disaster recovery procedures</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Conduct regular security audits and penetration testing</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Implement secure coding practices and code review processes</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Set up logging and monitoring for security events</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Establish incident response procedures and team</span>
+                            </li>
+                            {% elif moduleKey == 'privacy' %}
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Create comprehensive privacy policy and terms of service</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Implement cookie consent management and tracking controls</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Ensure GDPR compliance and data protection measures</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Minimize data collection and implement data retention policies</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Provide user data access and deletion capabilities</span>
+                            </li>
+                            {% elif moduleKey == 'compatibility' %}
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Ensure cross-browser compatibility across major browsers</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Implement responsive design for mobile and tablet devices</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Test functionality across different screen sizes and resolutions</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Ensure accessibility compliance for assistive technologies</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Optimize for different operating systems and devices</span>
+                            </li>
+                            {% elif moduleKey == 'marketing' %}
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Implement analytics tracking and conversion monitoring</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Optimize call-to-action buttons and conversion funnels</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Integrate social media sharing and engagement features</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Implement email marketing integration and lead capture</span>
+                            </li>
+                            <li class="flex items-start py-3 border-b border-gray-800 last:border-b-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mr-4 mt-1 text-blue-400"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                <span class="text-gray-300">Create compelling landing pages and user engagement strategies</span>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="teaser-overlay">
+                        <div class="teaser-text">Upgrade to Full Report</div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Optimal.dev Plug -->
+        <div class="mt-12 border border-gray-700 rounded-xl p-8 text-center" style="background-color: #120B13;">
+
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <img src="https://www.optimal.dev/_next/image?url=%2Foptimaldev_icon.png&w=64&q=75" alt="Optimal.dev Logo" class="h-12 w-12">
+
+                <img src="https://www.optimal.dev/_next/image?url=%2Fimages%2Foptimal-logo.svg&w=256&q=75" alt="Optimal.dev" class="h-8">
+
+            </div>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Need help with these changes? The team at Optimal.dev specializes in executing the recommendations from this report to enhance your website's performance, security, and user experience.</p>
+
+            <p class="mt-6 text-lg font-semibold text-blue-400">
+                Visit us at: <span class="text-white">https://optimal.dev</span>
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            <p>Report generated on {{ formattedDate }}</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function setProgress(circle, percent) {
+            const radius = circle.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            const offset = circumference - percent / 100 * circumference;
+            setTimeout(() => { circle.style.strokeDashoffset = offset; }, 100);
+        }
+
+        // Set progress for overall score
+        document.addEventListener('DOMContentLoaded', function() {
+            const overallProgressRing = document.getElementById('overall-progress-ring');
+            if (overallProgressRing) {
+                setProgress(overallProgressRing, {{ overallScore }});
+            }
+        });
+    </script>
+</body>
+</html>
